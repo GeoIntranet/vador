@@ -1,0 +1,139 @@
+.base_proto{
+
+  padding: 10px;
+  font-size: 2em;
+  color:$alert-color;
+
+
+  .pContainer{
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+
+    background-color: #efefef;
+//
+//    -moz-box-shadow: 1px 1px 15px 0px $light-gray;
+//    -webkit-box-shadow: 1px 1px 15px 0px $light-gray;
+//    -o-box-shadow: 1px 1px 15px 0px $light-gray;
+//    box-shadow: 1px 1px 15px 0px $light-gray;
+//    filter:progid:DXImageTransform.Microsoft.Shadow(color=$light-gray, Direction=134, Strength=15);
+
+    .pBarTitle{
+      border-top-right-radius:5px;
+      border-top-left-radius:5px;
+      background-color: #d8d8d8;
+      color:#c3c3c3;
+      text-align: center;
+    }
+
+    .pContainerB{
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+    .pFooter{
+
+      background-color: #d8d8d8;
+      color:$dark-gray;
+      text-align: center;
+    }
+
+  }
+
+
+}
+
+.pMtop{
+  text-align: center;
+
+  &.pLeft{
+    padding-right: 4px;
+    padding-bottom: 4px;
+  }
+
+  &.pCenter{
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+  }
+
+  &.pRight{
+    padding-left: 4px;
+    padding-bottom: 4px;
+  }
+
+}
+
+.pMmiddle{
+  background-color: #d8d8d8;
+  color:#c3c3c3;
+
+  &.pLeft{
+    padding-right: 2px;
+    padding-bottom: 2px;
+  }
+
+  &.pCenter{
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+  }
+
+  &.pRight{
+    padding-left: 2px;
+    padding-bottom: 2px;
+  }
+}
+
+.pMbottom{
+  background-color: #d8d8d8;
+  color:#c3c3c3;
+
+  &.pLeft{
+    padding-right: 2px;
+    padding-bottom: 2px;
+  }
+
+  &.pCenter{
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+  }
+
+  &.pRight{
+    padding-left: 2px;
+    padding-bottom: 2px;
+  }
+}
+
+.pC{
+  &.cc{height: 150px}
+  &.cm{height: 73px}
+  padding: 3px;
+  background-color: #d8d8d8;
+  color:#c3c3c3;
+  border-radius: 3px;
+}
+
+.pCase{
+//
+//  &:hover{
+//    border-radius: 8px;
+//    background-color: $white;
+//  }
+
+  &:hover{
+    border-radius: 8px;
+    background-color: $green;
+    color:$white
+  }
+}
+
+
+.sm1{
+  &:hover{
+    background-color: $alert-color;
+    color:$white;
+  }
+}

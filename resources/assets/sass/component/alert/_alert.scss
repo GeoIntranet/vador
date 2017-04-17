@@ -1,0 +1,105 @@
+.warn {
+
+  padding: 20px;
+  margin: 10px;
+  border-radius: 3px;
+
+  &.wPrimary {
+    background-color: #fff;
+    color: #D11149;
+  }
+
+  &.wError{
+    background-color: #F8DBE4;
+    color: #D11149;
+  }
+
+  &.wWarning { background-color: #fff; }
+  &.wSucess  { background-color: #fff; }
+}
+
+.sms{
+
+
+  padding: 20px;
+  margin: 10px;
+  border-radius: 3px;
+  color: $white;
+
+  .brdWarning{ border-bottom: 1px solid #db6b6b; }
+  .brdSucess{ border-bottom: 1px solid #25aa7e; }
+
+  &.mPrimary { background-color: $blue; }
+  &.mError   { background-color: $red; }
+  &.mWarning { background-color: $yellow; }
+  &.mSucess  { background-color: $green; }
+}
+
+.BoxAlertWarning{
+  padding: 5px 20px 5px 20px;
+  border-radius: 3px;
+  color: $white;
+  background-color: indianred;
+}
+
+.BoxSearch{
+
+  a{
+    span{
+
+      .bubule{
+        font-size: 0.7em;
+        position: absolute;
+        z-index: 2;
+        color:white;
+        left:59%;
+        top: -8px;
+
+
+
+
+        .WarningBubule{
+          padding: 7px 7px 7px 7px;
+          border-radius: 500px;
+          background-color: $alert-color;
+
+        }
+        .WarningBubule_{
+          padding: 6px 9px 6px 9px;
+          border-radius: 500px;
+          background-color: $alert-color;
+
+        }
+
+        .SuccessBubule{
+          padding: 7px 7px 7px 7px;
+          border-radius: 500px;
+          background-color: $green;
+        }
+
+        .SuccessBubule_{
+          padding: 6px 9px 6px 9px;
+          border-radius: 500px;
+          background-color: $green;
+        }
+
+        .StdBubule{
+          padding: 7px 7px 7px 7px;
+          border-radius: 500px;
+          background-color: $blue;
+        }
+
+        .StdBubule_{
+          padding: 6px 9px 6px 9px;
+          border-radius: 500px;
+          background-color: $blue;
+        }
+        .Stdbubulewarning {
+
+        }
+
+      }
+    }
+  }
+
+}

@@ -1,0 +1,65 @@
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@charset "utf-8";
+//// RESET ------------------------------------------------------------------------------------------------------------
+@import "reset/normalize";
+//// ------------------------------------------------------------------------------------------------------------------
+//FOUNT-AWESOME -------------------------------------------------------------------------------------------------------
+@import 'fam';
+
+// FRAMEWORK FOUNDATION -----------------------------------------------------------------------------------------------
+@import "variable";
+@import "settings";
+@import "foundation/foundation";
+@include  foundation-everything;
+
+//// DIFFERENT COMPOSANT DE L APPLICATION -----------------------------------------------------------------------------
+@import "component/menu/menu2";
+@import "component/grid/grid";
+@import "component/guide/guide";
+@import "component/autocomplete/autocomplete";
+@import "component/form/form";
+@import "component/search/search";
+@import "component/container/modul";
+@import "component/table/table";
+@import "component/tooltips/tooltips";
+@import "component/link/link";
+@import "component/prototype/prototype";
+@import "component/footer/footer";
+@import "component/alert/alert";
+@import "component/bouton/bouton";
+@import "component/images/imgs";
+@import "component/badge/badge";
+@import "component/datepicker/fdp";
+//// ---------------------------------------------------------------------------------------------------------------------
+
+//// MODULES DE L APPLICATION --------------------------------------------------------------------------------------------
+@import "module/incident/incident";
+@import "module/incident/menu_incident";
+@import "module/locator/locator";
+@import "module/locator/id";
+@import "module/horaire/horaire";
+@import "module/routes/routes";
+@import "module/user/user";
+
+//// THEME DE L APPLICATION ----------------------------------------------------------------------------------------------
+//// ---------------------------------------------------------------------------------------------------------------------
+@import "GENERAL/General";
+@import "theme/theme";
+//// ---------------------------------------------------------------------------------------------------------------------
+
+////FICHIER d'IMPRESSION
+@import "print/horaire/print";
+//// ---------------------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------------------
+//// FONT DE L APPLICATION ----------------------------------------------------------------------------------------------
+@import "fonts/typo";
+@import "component/bbcode/bb";
+
+
+
+
+
+
+

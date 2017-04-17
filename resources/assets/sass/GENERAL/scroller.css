@@ -1,0 +1,89 @@
+/* Main Primary color */
+/* Main Primary color */
+.fts_065 {
+  font-size: 0.65em; }
+
+.fts_060 {
+  font-size: 0.60em; }
+
+.fts_070 {
+  font-size: 0.70em; }
+
+.fts_075 {
+  font-size: 0.75em; }
+
+.fts_080 {
+  font-size: 0.80em; }
+
+.fts_085 {
+  font-size: 0.85em; }
+
+.fts_090 {
+  font-size: 0.90em; }
+
+.fts_095 {
+  font-size: 0.95em; }
+
+.fts_100 {
+  font-size: 1em; }
+
+.fts_110 {
+  font-size: 1.1em; }
+
+.fts_120 {
+  font-size: 1.2em; }
+
+.fts_130 {
+  font-size: 1.3em; }
+
+.fts_140 {
+  font-size: 1.4em; }
+
+.fts_150 {
+  font-size: 1.5em; }
+
+.fts_160 {
+  font-size: 1.6em; }
+
+.fts_170 {
+  font-size: 1.7em; }
+
+.fts_180 {
+  font-size: 1.8em; }
+
+.fts_190 {
+  font-size: 1.9em; }
+
+.fts_200 {
+  font-size: 2em; }
+
+.fts_400 {
+  font-size: 4em; }
+
+::-webkit-scrollbar {
+  height: 35px;
+  border-radius: 10px; }
+
+::-webkit-scrollbar-track {
+  background-color: #181f50;
+  width: 20px;
+  margin: 12px;
+  border: 10px solid transparent;
+  background-clip: padding-box;
+  border-radius: 15px; }
+
+::-webkit-scrollbar-track-piece {
+  border-radius: 5px; }
+
+::-webkit-scrollbar-corner {
+  background-color: transparent; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  border: 10px solid transparent;
+  background-clip: padding-box;
+  background-color: #545c9a; }
+
+/* this will style the thumb, ignoring the track */
+
+/*# sourceMappingURL=scroller.css.map */

@@ -1,0 +1,34 @@
+@media print{
+  .routesContainer{
+    font-size: 0.8em;
+//    .groupes{  font-size: 0.8em; }
+//    .general{  font-size: 0.8em;}
+//    .routes{  font-size: 0.8em;}
+  }
+
+}
+
+.routesContainer{
+  padding: 5px;
+
+  .groupes{
+      padding: 3px 0px 3px 0px;
+      border-bottom: 2px solid $border-modul;
+      font-family: "googleB";
+      font-size: 1.2em;
+  }
+  .general{
+    font-family: "googleT";
+    font-weight: bold;
+    padding: 3px 0px 3px 0px;
+    border-bottom: 2px solid $border-modul;
+  }
+
+  .routes{
+    font-family: "googleR";
+    font-size: 0.9em;
+    padding: 3px 0px 3px 0px;
+    border-bottom: 1px solid $border-modul;
+  }
+
+}

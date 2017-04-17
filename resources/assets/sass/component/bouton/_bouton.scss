@@ -1,0 +1,101 @@
+.mSave{
+  margin: 0;
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  font-size: 1.5em;
+  border-radius: 11px;
+  border:solid 4px indianred;
+  color: indianred;
+  background-color: $bgc;
+
+  &.small{ padding: 5px; }
+
+  &.info{
+    border:solid 4px $fb;
+    color: $fb;
+
+    &:hover{
+      color:$white;
+      background-color: $fb;
+      border:solid 4px $fb;
+    }
+    &:active{
+      background-color: #304d87;
+      border:solid 4px #304d87;
+      border-radius: 11px;
+    }
+
+  }
+
+  &:hover{
+    color:$white;
+    background-color: indianred;
+    border:solid 4px indianred;
+  }
+  &:active{
+    background-color: #b75252;
+    border:solid 4px #b75252;
+    border-radius: 11px;
+  }
+}
+
+.categorieButton{
+
+  margin: 0;
+  width: 100%;
+  padding: 10px;
+  border-radius: 7px;
+  border:solid 4px $green;
+  &.small{ padding: 5px; }
+  &.selected {background-color: $green; color:$white;}
+  &:hover{
+    color:$white;
+    background-color: $green;
+    border:solid 4px $green;
+    border-radius: 7px;
+  }
+  &:active{
+    color : $black;
+  }
+
+}
+
+
+button{
+    &.linkPrev{
+      text-align: left;
+      width: 100%;
+      height: auto;
+      padding: 11px;
+      font-size: 1em;
+      border-bottom: solid 2px $bgc;
+      background-color: $bgc;
+      color: indianred;
+
+      &:hover{
+        a{
+          border-bottom:dashed 2px indianred;
+          color:indianred;
+        }
+      }
+
+      &:active{
+        a{ border-bottom:dashed 2px $darker-gray;  }
+
+      }
+
+    }
+}
+
+.button{
+  margin : 0;
+  &.green{
+    background-color: $green;
+    color:$white;
+  }
+  &.blue{
+    background-color: $blue;
+    color:$white;
+  }
+}

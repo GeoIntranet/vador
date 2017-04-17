@@ -1,0 +1,133 @@
+
+.linkContainer{
+
+  display: inline-block;
+  height: 50px;
+  line-height: 150%;
+  font-size: 2em;
+  margin-right: 2px;
+  margin-left: 2px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  color:$white;
+  border-radius: 3px;
+
+
+
+  .linkIco{
+    font-size: 0.40em;
+    position:absolute;
+    right:5%;
+    top:25%;
+  }
+
+  &.generique{
+    background-color:  $bgc-h;
+    a{ color: $dark-gray; }
+    &:hover{
+      transition : background-color 0.7s, color 0.7s;
+      color: white;
+      a{
+        transition:  color 0.7s;
+        color: white;
+        border-bottom: dashed 1px $white;
+      }
+    }
+  }
+
+
+  &.bg_blue{  &:hover{ background-color: #5b76ae; color:$white} }
+
+  &.bg_yellow:hover{background-color: $yellow;}
+
+  &.bg_red{
+    &:hover{ background-color: indianred; }
+  }
+
+  &.bg_orange{
+    &:hover{ background-color: $alert-color; }
+  }
+
+  &.bg_rose{
+    &:hover{ background-color: #cd78c7; }
+  }
+
+  &.bg_green{
+    &:hover{ background-color: $green; }
+  }
+
+  &.bg_brown{
+    &:hover{ background-color: #cd78c7; }
+  }
+
+  &.bg_dark{
+    &:hover{ background-color: $darker-gray; }
+  }
+
+  &.bg_gray{ background-color: #cd78c7;
+    &:hover{ background-color: #5b76ae; }
+  }
+
+
+
+  &.eurocomputer{
+    background-color: #cd78c7;
+    a{ color: $white; }
+    &:hover{
+      background-color: #cd78c7;
+      transition : background-color 0.7s, color 0.7s;
+      color: white;
+      a{
+        transition:  color 0.7s;
+        color: white;
+      }
+    }
+  }
+
+  &.google{
+    background-color: indianred;
+    a{ color: $white; }
+    &:hover{
+      background-color: indianred;
+      transition : background-color 0.7s, color 0.7s;
+      color: white;
+      a{
+        transition:  color 0.7s;
+        color: white;
+      }
+    }
+  }
+
+  &.zebra{
+    background-color: $darker-gray;
+    a{ color: $white; }
+    &:hover{
+      background-color: $darker-gray;
+      transition : background-color 0.7s, color 0.7s;
+      color: white;
+      a{
+        transition:  color 0.7s;
+        color: white;
+      }
+    }
+  }
+}
+
+a{
+  &.l{
+    border-bottom: 1px in;
+    &:hover{
+      border-bottom: 1px $dark-gray dashed;
+      color:$alert-color;
+    }
+  }
+}
+
+a{
+  .fa-stack:hover{
+    .deco{
+      transition: color 0.8s ;
+      color:$red;
+    }
+  }
+}

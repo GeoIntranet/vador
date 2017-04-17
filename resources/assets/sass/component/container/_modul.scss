@@ -1,0 +1,256 @@
+.mContainer {
+  border-bottom: solid 1px $border-modul;
+  border-radius: 6px;
+  background-color: $bgc-content;
+
+  -moz-box-shadow: 1px 1px 15px 0px #e5e5e5;
+  -webkit-box-shadow: 1px 1px 15px 0px #e5e5e5;
+  -o-box-shadow: 1px 1px 15px 0px #e5e5e5;
+  box-shadow: 1px 1px 15px 0px #e5e5e5;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#e5e5e5, Direction=134, Strength=15);
+
+  .mTitle {
+    background-color: $white;
+    padding: 8px 0 0 0 ;
+    border-bottom: solid 1px $border-modul;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color:$dark-gray;
+
+    .expand{
+      i{ color:$dark-gray ;
+        &:hover{
+          color:$darker-gray;
+          cursor: pointer;
+        }
+      }
+    }
+
+    a{
+      i{
+        color:$dark-gray;
+        &:hover{color:$darker-gray;}
+      }
+    }
+
+  }
+
+  .mUser{
+
+
+
+    background-color: $white;
+    color:$dark-gray;
+    margin-bottom: 5px;
+    border-bottom:1px $border-footer solid !important;
+
+  }
+
+  .mFooter {
+    padding: 8px;
+    background-color: $white;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color:$dark-gray;
+    border-top:1px $border-footer solid;
+
+  }
+
+  .RapidSearch {
+    background-color: #ffffff;
+   // border-bottom: 2px solid $border-modul;
+  }
+
+}
+
+
+  .BoxSearch{
+    display: inline-block;
+    background-color: $bgc;
+    height: 50px;
+    line-height: 300%;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-top: 5px;
+    color:#808080;
+    border-radius: 3px;
+
+    a{ color: #808080; }
+    &:hover{
+      background-color: $bgc-h;
+      transition : background-color 0.7s, color 0.7s;
+      color: black;
+
+      a{
+        transition:  color 0.7s;
+        color: black;
+      }
+    }
+  }
+
+.bRS{
+  margin-bottom: 5px;
+}
+
+
+.mProto{
+
+  border-radius: 5px;
+  background-color: $bgc-content;
+
+  .mProtoTitle{
+    font-size: 0.8em;
+    font-family: googleR;
+    padding: 6px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #d8d8d8;
+//    color:$dark-gray;
+//    color:$white;
+    color:#ababab;
+  }
+
+  .mProtoFooter{
+    padding: 2px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #d8d8d8;
+    //    color:$dark-gray;
+    color:$white;
+  }
+
+
+}
+
+.ContainerEmplacementLoc{
+
+
+  padding:0.22rem 0rem 0rem 0rem ;
+  border-radius: 5px;
+  border: 2px solid $bgc-content;
+  height: 35px;
+  font-size: 0.8em;
+  background-color: $bgc-h;
+
+  a{
+    padding: 0;
+    color:$dark-gray;
+    border-bottom: dashed 2px $bgc-h;
+  }
+
+
+
+
+
+  &:hover{
+
+    padding: 5px 20px 0px 20px;
+    color:black;
+    border: 2px solid $bgc-content;
+    background-color: #caccd1;
+    transition :padding 0.5s , background-color 0.5s, color 0.5s;
+
+    a{
+      padding: 0px 0px 0px 0px;
+      color:$darker-gray;
+      border-bottom: dashed 2px $dark-gray;
+      font-weight: bold;
+    }
+
+  }
+
+}
+
+
+
+
+a{
+
+}
+
+
+.ContainerMachineLoc{
+
+  color:$dark-gray;
+  padding:0;
+
+  a{
+    padding: 5px 0px 0px 0px;
+    border-radius: 5px;
+    border: 2px solid $bgc-content;
+    height: 35px;
+    font-size: 0.8em;
+    background-color: $bgc-h;
+
+    &:hover{
+      span.bdd{ border-bottom: 2px dashed $white; }
+
+      font-weight: bold;
+      padding: 5px 20px 0px 20px;
+      border: 2px solid $bgc-content;
+      background-color: $alert-color;
+      color:$white;
+      transition :padding 0.5s , background-color 0.5s, color 0.5s;
+
+    }
+
+  }
+
+
+}
+.ContainerMachineLocator{
+
+  color:$dark-gray;
+  padding:0;
+
+
+  a{
+    padding: 5px 0px 0px 0px;
+    border-radius: 5px;
+    border: 2px solid $bgc-content;
+    height: 35px;
+    font-size: 0.8em;
+    background-color: $bgc-h;
+
+    &:hover{
+      span.bdd{ border-bottom: 2px dashed $white; }
+
+      font-weight: bold;
+      padding: 5px 20px 0px 20px;
+      border: 2px solid $bgc-content;
+      background-color: $fb;
+      color:$white;
+      transition :padding 0.5s , background-color 0.5s, color 0.5s;
+
+    }
+
+  }
+
+
+}
+.SoustitreBox {
+  padding: 8px 8px 0px 8px;
+
+  &.contentFooter:hover{
+    border-radius: 4px;
+    background-color: $fb;
+    color:$white;
+    transition : background-color 0.4s ease, color 0.4s ease;
+
+
+    a{
+      border-bottom: 1px dotted $white;
+      :hover{color:$white;}
+    }
+
+  }
+
+  a{
+
+    color:$border-modul;
+    :hover{ color : $primary-color; }
+  }
+
+}
+
+.SousContent  {   padding: 0px 10px 10px 10px; }

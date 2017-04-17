@@ -1,0 +1,403 @@
+table{
+  width: 100%;
+}
+
+.Small{
+  tr,td,th{font-size: 0.9em;}
+}
+
+.mIndex{
+  tr{
+    i{
+      &.red{color:$red}
+      color:$dark-gray;
+    }
+  }
+}
+
+.tIncident{
+
+  tbody{
+    a{color:$dark-gray}
+
+    tr{
+      color:$dark-gray;
+
+      &:hover{
+        background-color: indianred;
+        color:white;
+
+        a{
+          &:hover{ border-bottom: dashed 1px $white; }
+          color:$white;
+        }
+        i{ color:$white; }
+
+      }
+    }
+  }
+
+}
+
+.tAchat{
+
+  tbody{
+    a{color:$dark-gray}
+
+    tr{
+      color:$dark-gray;
+
+      &:hover{
+
+        background-color: #1d9d74;
+        color:white;
+
+        a{
+          &:hover{ border-bottom: dashed 1px $white; }
+          color:$white;
+        }
+        i{ color:$white; }
+
+      }
+    }
+  }
+}
+
+.tArrive{
+
+  a{color:$dark-gray}
+
+  tbody{
+
+    tr{
+      color:$dark-gray;
+
+      &:hover{
+        background-color: $fb;
+        color:white;
+
+        a{
+          &:hover{ border-bottom: dashed 1px $white; }
+          color:$white;
+        }
+        i{ color:$white; }
+
+      }
+    }
+  }
+}
+
+.tCrm{
+  tbody{
+    a{color:$dark-gray}
+
+    tr{
+      color:$dark-gray;
+
+      &:hover{
+        background-color: $yellow;
+        color:white;
+
+        a{
+          &:hover{ border-bottom: dashed 1px $white; }
+          color:$white;
+        }
+        i{ color:$white; }
+      }
+    }
+  }
+}
+
+.table-guide-style{
+
+    thead,tbody,tr{
+      border:none;
+    }
+    thead {
+      tr {
+        border-bottom: 3px solid $dark-gray;
+        th{
+          padding : 18px 18px 18px 18px;
+
+        }
+      }
+    }
+    tbody{
+      tr{
+        td{
+          padding : 15px 15px 15px 15px;
+        }
+      }
+    }
+}
+
+table  {
+  .no-style {
+    tr{
+      border-bottom:solid 1px $light-gray;
+    }
+    tr:nth-of-type(even){
+      color : $darker-gray;
+      background-color:inherit;
+    }
+    tr:nth-of-type(odd){
+      background-color: inherit;
+      border-bottom:solid 1px $light-gray;
+    }
+  }
+}
+
+table  {
+  &.locator {
+
+    background-color: $white;
+    border-radius: 8px;
+    border:transparent;
+    padding: 2px ;
+    border-spacing: 0 ;
+    margin: 0 ;
+
+    tr:nth-of-type(even){ background-color:transparent; }
+    tr:nth-of-type(odd){ background-color:transparent; }
+
+    tr,td,th,tbody,thead{
+      background-color: transparent;
+      padding: 0;
+      margin: 0;
+      border: transparent;
+      border-spacing: 0 ;
+    }
+
+    td{
+      &.empty{
+        border-left: solid 3px #d0d1d5;
+        border-right: solid 3px #d0d1d5;
+      }
+      &.separator_zone{
+        border-bottom:1px solid #e6e6e6;
+      }
+    }
+    tr{
+      border-right:solid 1px $light-gray;
+      border-top-left-radius: 8px;
+      padding-right: 10px;
+      &.break{
+        :hover{
+          background-color: $red;
+          color : $white;
+          a{
+            :hover{border-bottom: dotted 2px $white;}
+            color : $white;
+          }
+        }
+        td{
+          border-right:solid 1px $light-gray;
+          padding: 5px 0px 5px 0px ;
+        }
+      }
+    }
+  }
+}
+
+
+table  {
+  &.tight {
+    tbody{
+      tr,td{ padding:4px; }
+    }
+
+  }
+}
+
+
+
+
+table{
+
+  &.locator_core{
+    border-collapse: separate;
+    border:0px transparent;
+    font-size: 0.70em;
+    padding: 0 ;
+    border-spacing: 0 ;
+    margin: 0 ;
+
+
+    tr:nth-of-type(even){
+      background-color:red;
+      border:0px transparent;
+    }
+    tr:nth-of-type(odd){ background-color:red;      border:0px transparent;}
+
+
+    td, tr{
+      padding: 0;
+      margin: 0;
+      border:0px transparent;
+    }
+
+    td:first-child{
+      border:0px transparent;
+    }
+
+    tr{
+      border-bottom:solid 1px $dark-gray;
+      border-radius: 15px;
+    }
+
+    td{
+      border:transparent;
+    }
+
+  }
+}
+
+table{
+  &.locator_information{
+    border-collapse: separate;
+    border:transparent;
+    padding: 0 ;
+    border-spacing: 0 ;
+    margin: 0 ;
+    tr{
+      border: 0px transparent;
+    }
+    td{ padding: 4px; }
+    td:first-child{border:transparent}
+  }
+}
+
+
+table{
+  &.locator_description{
+    border-collapse: separate;
+    border:transparent;
+    padding: 0 ;
+    border-spacing: 0 ;
+    margin: 0 ;
+    tr{
+      border: 0px transparent;
+    }
+    td{ padding: 0px; }
+    td:first-child{border:transparent}
+  }
+}
+
+
+table{
+  &.locator_core_{
+    border-collapse: separate;
+    padding: 0 ;
+    margin: 0 ;
+    background-color:#e6e6e6;
+    border-radius: 10px;
+
+    tr,td{
+      padding: 0 ;
+      margin: 0 ;
+      background-color: #e6e6e6;
+    }
+    tr:nth-of-type(odd){border-bottom:solid 3px $white;}
+    tr:nth-of-type(even){border-bottom:solid 3px $white;}
+    td{border-bottom:solid 3px $white;}
+    tr:last-child > td{border-bottom:transparent;}
+
+    tr:first-child > {
+      td:first-child{
+        border-top-left-radius:10px;
+      }
+      td:nth-of-type(2){
+        border-top-right-radius:10px;
+      }
+    }
+    tr:last-child > {
+      td:first-child{
+        border-bottom-left-radius:10px;
+      }
+      td:nth-of-type(2){
+        border-bottom-right-radius:10px;
+      }
+    }
+    td:first-child{border-right:1px solid white}
+
+  }
+}
+table{
+
+   &.locator_information_{
+     padding: 0 ;
+     margin: 0 ;
+     border-collapse: separate;
+
+     tr,td{
+       padding: 0 ;
+       margin: 0 ;
+     }
+
+     tr:nth-of-type(odd){border-bottom:transparent }
+
+     tr:nth-of-type(even){border-bottom:transparent;}
+
+     td{border-bottom:transparent;}
+
+     tr:last-child > td{border-bottom: transparent ;}
+
+     tr:first-child > {
+       td:first-child{
+         border-radius: 0px;
+       }
+     }
+
+     tr:last-child > {
+       td:first-child{
+         border:transparent;
+         border-radius: 0px;
+       }
+       td:nth-of-type(2){
+         border:transparent;
+         border-radius: 0px;
+       }
+     }
+
+     td:first-child{border-right:transparent}
+   }
+
+ }
+
+table{
+  &.locator_description_{
+    border-collapse: separate;
+    padding: 0 ;
+    margin: 0 ;
+    tr,td{
+      padding: 0 ;
+      margin: 0 ;
+    }
+    td{padding:5px;}
+    tr:nth-of-type(odd){border-bottom:transparent }
+    tr:nth-of-type(even){border-bottom:transparent;}
+    td{border-bottom:transparent;}
+    tr:last-child > td{border-bottom:transparent;}
+
+    tr:first-child > {
+      td:first-child{
+        border-top-right-radius: 10px;
+        border-top-left-radius: 0px;
+        border-bottom : 1px solid $white;
+      }
+      td:nth-of-type(2){
+      }
+    }
+    tr:last-child > {
+      td:first-child{
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 0px;
+        border:transparent;
+      }
+      td:nth-of-type(2){
+      }
+    }
+    td:first-child{border-right:transparent}
+
+  }
+}

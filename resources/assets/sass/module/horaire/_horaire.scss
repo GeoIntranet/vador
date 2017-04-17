@@ -1,0 +1,156 @@
+
+
+
+.hModule{
+  color:$dark-gray;
+  text-align: center;
+  border-right: 3px solid $white;
+  border-radius: 4px;
+  padding: 5px;
+
+  &.normal{ background-color:  $bgc-h; }
+  &.anormal{ background-color: #ead3d3; }
+  &.weekEnd{ background-color: #d3e4e8; }
+  
+  &.NR{ background-color:  #d6c7b3; }
+  &.OI{ background-color: #d0dbc9; }
+  &.FF{ background-color: #d3e4e8; }
+
+  .CP{
+
+    border-radius: 3px;
+    background-color: $white;
+    font-weight: bolder;
+    color: $red;
+  }
+
+  .REC{
+
+    border-radius: 3px;
+    background-color: $white;
+    font-weight: bolder;
+    color: $fb;
+  }
+
+  .HNP{
+
+    border-radius: 3px;
+    background-color: $white;
+    font-weight: bolder;
+    color: $alert-color;
+  }
+  .HP{
+
+    border-radius: 3px;
+    background-color: $white;
+    font-weight: bolder;
+    color: $green;
+  }
+
+  .F{
+
+    border-radius: 3px;
+    background-color: $white;
+    font-weight: bolder;
+    color: $yellow;
+  }
+}
+
+.moduleMenu{
+  text-align: center;
+  padding: 3px;
+  width: 40px;
+
+}
+
+@media print{
+  .resume{
+    font-size: 0.6em;
+  }
+}
+
+.resume{
+  border-bottom: solid 1px $white;
+
+  .semaine2{ border-right: solid 2px $white;}
+  .semaine{
+    border-right: solid 2px $white;
+
+    .row{
+      .subCat{
+
+        border-right: solid 2px $white;
+        border-radius: 3px;
+
+        &.normal{ background-color:  $bgc-h; }
+        &.anormal{ background-color: #ead3d3; }
+        &.weekEnd{ background-color: #d3e4e8; }
+
+        &.NR{ background-color:  #d6c7b3; }
+        &.OI{ background-color: #d0dbc9; }
+        &.FF{ background-color: #d3e4e8; }
+
+      }
+      .subCatHead{
+
+        border-right:   solid 2px $white;
+        border-Bottom: solid 2px $border-modul;
+
+        &.normal{ background-color:  $bgc-h; }
+        &.anormal{ background-color: #ead3d3; }
+        &.weekEnd{ background-color: #d3e4e8; }
+
+        &.NR{ background-color:  #d6c7b3; }
+        &.OI{ background-color: #d0dbc9; }
+        &.FF{ background-color: #d3e4e8; }
+      }
+    }
+
+  }
+
+  .user{
+    border-right: solid 1px $border-modul;
+  }
+
+}
+
+.ContainerMenu{
+  border-right: solid 2px $border-modul;
+  .SubMenu{
+    color:$dark-gray;
+    border-bottom: solid 1px $border-modul;
+    padding: 10px;
+  }
+}
+
+
+@media print{
+
+  .resume{
+
+    border-radius: 0;
+    padding: 0px;
+
+    font-size: 0.6em;
+    border-bottom: solid 1px $light-gray;
+    border-left:  solid 0px ;
+    border-right:  solid 0px ;
+
+    .semaine{
+      border-radius: 0;
+      //padding: 0px;
+      //border-right:  solid 1px $light-gray;
+      //border-left:  solid 0px ;
+
+      .row{
+        .subCat{
+          border:none;
+          border-right:  solid 1px $light-gray;
+        }
+      }
+
+    }
+  }
+}
+
+

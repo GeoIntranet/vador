@@ -1,0 +1,18 @@
+.img_avatar
+{
+  a{
+    img{
+      border-radius: 500px;
+      background-color: $bgc;
+      padding: 1px;
+
+
+      &.avatar{
+        width: 90%;
+        height:auto;
+        border:solid 3px $red;
+        border-radius: 300px;
+      }
+    }
+  }
+}

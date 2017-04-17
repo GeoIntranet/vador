@@ -1,0 +1,60 @@
+.puce_calender {
+
+  padding: 4px;
+  border-radius: 5px;
+  &.warning{  font-weight: bold;  background-color: $yellow;}
+  &.info{     font-weight: bold;  background-color: $fb;}
+  &.success{   font-weight: bold;  background-color: $green;}
+  &.danger{   font-weight: bold;  background-color: $red; }
+  &.today{ color:$white; }
+}
+
+
+.Puce{
+
+  margin: 2px;
+  padding : 0px 7px 0px 7px;
+  border-radius: 5px;
+
+  &.Warning{ background-color: $yellow;}
+  &.Info{ background-color: $fb;}
+  &.Sucess{ background-color: $green;}
+  &.Danger{ background-color: $red;}
+
+}
+
+.with_delais{
+  padding: 7px;
+  border-radius: 5px;
+  background-color: $green;
+  color : $white;
+}
+
+.with_no_delais{
+  padding: 7px;
+  border-radius: 5px;
+  background-color: $red;
+  color : $white;
+}
+
+.tag{
+  font-size: 0.85em;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: $green;
+  color : $white;
+}
+
+a
+{
+  &.badgeMenu{
+    border-radius: 4px;
+    background-color: $green;
+    color: white;
+    :hover{
+      color:white;
+      text-decoration: underline;
+    }
+  }
+
+}

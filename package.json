@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.0",
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^5.0.0",
+    "laravel-elixir-livereload": "^1.1.6"
+  },
+  "dependencies": {
+    "detached-jquery-2.1.4": "^2.1.4-v7",
+    "express": "^4.14.0",
+    "foundation-sites": "^6.2.3",
+    "socket.io": "^1.4.8",
+    "vue": "^1.0.26"
+  }
+}

@@ -1,0 +1,128 @@
+.locatorContainer{
+
+  border-bottom: solid 1px $border-modul;
+  border-radius: 6px;
+  background-color: $bgc-content;
+  margin-bottom: 30px;
+
+  -moz-box-shadow: 1px 1px 15px 0px #e5e5e5;
+  -webkit-box-shadow: 1px 1px 15px 0px #e5e5e5;
+  -o-box-shadow: 1px 1px 15px 0px #e5e5e5;
+  box-shadow: 1px 1px 15px 0px #e5e5e5;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#e5e5e5, Direction=134, Strength=15);
+
+  .statutBar{
+    background-color: $border-footer;
+
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+
+    .locatorRaccourci{
+      background-color: $blue;
+      color:$white;
+      font-size: 1.1em;
+      padding: 15px;
+      border-bottom:1px $white solid;
+      border-top-left-radius: 6px;
+
+    }
+
+    .listInc{
+      border-bottom: 1px solid $border-footer;
+      background-color: $white;
+
+      &:hover{
+        border-bottom:1px $white solid;
+        background-color: $blue;
+        color:$white;
+      }
+
+    }
+  }
+
+  .SubContainer{
+    border-left: solid 3px $blue;
+
+    .locatorRaccourci{
+      height: auto;
+      background-color: $border-footer;
+      color:$darker-gray;
+      font-size: 1.1em;
+      border-top-right-radius: 6px;
+
+      .column > .row{
+      }
+
+    }
+
+  }
+
+
+
+  .CliStatutWarning{
+    padding: 5px;
+    background-color: indianred;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-family: googleB;
+    color:$white;
+  }
+  .CliStatutSucess{
+    padding: 5px;
+    background-color: $blue;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-family: googleB;
+    color:$white;
+  }
+
+
+  .locatorBarreInfo{
+    padding: 5px;
+    border-bottom:4px $border-modul solid;
+    .sub{
+      border-bottom:1px $border-modul solid;
+    }
+    .sep{
+      border-right:1px $border-modul solid;
+    }
+  }
+
+  .locatorBarreHead{
+
+    padding: 5px;
+    border-bottom:3px $border-modul solid;
+    background-color: $white;
+
+    .sub{
+    }
+
+  }
+
+  .locatorBarreContent{
+    padding: 5px;
+
+    .locatorInfo{
+      text-align: center;
+    }
+    .locatorContent{ border-left: 1px solid $border-modul;}
+
+  }
+
+  .iconeRaccourcit{
+    font-size: 1.1em;
+    text-align: center;
+    padding: 14px 12px 13px 12px;
+
+
+
+    &:hover {
+      background-color: $blue;
+      a{
+        color: $white;
+      }
+      color: $white;
+    }
+  }
+
+}

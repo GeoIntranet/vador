@@ -1,0 +1,57 @@
+.mBoxSetting{
+
+  border:1px solid $border-modul;
+  color:$dark-gray;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 0px;
+  list-style:none;
+  -moz-box-shadow: 2px 2px 10px 0px #cfcfcf;
+  -webkit-box-shadow: 2px 2px 10px 0px #cfcfcf;
+  -o-box-shadow: 2px 2px 10px 0px #cfcfcf;
+  box-shadow: 2px 2px 10px 0px #cfcfcf;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=134, Strength=10);
+
+  li{
+    text-align: left;
+    padding: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+
+
+    &.tTitle{
+      border-bottom:1px solid $border-tt;
+
+      a{
+        color:$dark-gray;
+        i{color:indianred; }
+      }
+
+    }
+
+    &.tContent{
+      font-size: 0.8em;
+      a{ color:$dark-gray; }
+      &:hover{
+        background-color: indianred;
+        i,i:hover{
+          color:$white;
+
+        }
+//        i{color:indianred; }
+        a{ color:$white; }
+      }
+    }
+    .tFooter{ }
+  }
+
+}
+
+.tCenter{
+  text-align: center;
+}
+
+.toolTipsCrm{
+  //max-width: 20rem !important;
+}

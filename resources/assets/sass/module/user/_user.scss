@@ -1,0 +1,31 @@
+.UserContainer{
+
+  .userTitre{
+    border-bottom: solid 2px $border-modul;
+    padding : 12px 0px 12px 0px;
+  }
+
+  .userHead{
+    border-bottom: solid 2px $border-modul;
+    padding : 10px 0px 10px 0px;
+    .userSep2{border-right: solid 2px $border-modul;}
+  }
+
+  a{
+    color: $dark-gray;
+    font-family: googleR;
+
+    >:hover {
+      background-color: $green;
+      color:$white;
+    }
+
+    .userContent {
+      border-bottom: solid 1px $border-modul;
+      .userSep2{border-right: solid 2px $border-modul;}
+    }
+
+  }
+}
+
+.SpecPad { padding : 0px 0px 0px 0px;}

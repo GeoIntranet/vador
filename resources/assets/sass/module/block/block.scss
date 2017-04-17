@@ -1,0 +1,313 @@
+
+
+
+.dragbox {
+  .edd{
+    visibility: hidden;
+  }
+  &:hover{
+    .edd{
+      visibility: visible;
+    }
+  }
+}
+
+
+.ColorFlag{
+
+  height: 8px;
+  margin: 3px 2px -5px 3px;
+  border-radius: 2px;
+  background-color: indianred;
+}
+
+
+.column
+{
+  min-height:50px;
+  float:left;
+  @include border-radius(4px);
+  background-color: $cs-block;
+  color:$ft_blk;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+
+  .dragbox
+{
+     margin:5px 7px  15px;
+    position:relative;
+     -moz-border-radius:3px;
+     -webkit-border-radius:3px;
+     cursor : pointer;
+     background-color: $cs_white;
+    border-bottom: solid 1px #bbb7af;
+
+    &:hover{ background-color:  #f1ede8;}
+
+      h2
+      {
+        margin:0;
+        height: 40px;
+        font-size:12px;
+        border-bottom:1px solid #eee;
+        font-family:Verdana;
+        .collapse{ background:#f0f0f0 ; }
+
+      }
+
+    .dragbox-content
+    {
+
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+      padding: 10px 5px  5px ;
+      font-size: 1.1em;
+      height: 30px;
+      color:$ft_ctt;
+    }
+
+   }
+
+  .project
+  {
+    font-weight: bold;
+    text-align: left;
+    font-size: 16px;
+    padding: 7px;
+    a
+    {
+      color: $ft_titre;
+    }
+
+  }
+
+  .placeholder
+  {
+    background: #9e9b94;
+    margin:5px 7px  15px;
+    padding: 3px 5px 3px 5px ;
+    position:relative;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+  }
+
+  .icoNotif{
+
+    color: #bcb7ac;
+    margin: -10px 0px 0px 0px;
+    padding-bottom: 10px;
+
+  }
+
+}
+
+
+
+
+.connected, .sortable, .exclude, .handles {
+
+  white-space:normal;
+  margin: auto;
+  padding: 0;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+.sortable.grid { overflow: hidden; }
+
+.connected li, .sortable li, .exclude li, .handles li {
+  list-style: none;
+  color: #1C94C4;
+  margin: 7px;
+}
+
+
+li.disabled { opacity: 0.5; }
+
+.sortable.grid li {
+  float: left;
+  width: 265px;
+  height: auto;
+  text-align: center;
+}
+
+.connected {
+  width: 440px;
+  overflow: hidden;
+  margin: auto;
+  float: left;
+  .no2 {
+    float: right;
+  }
+
+}
+
+li.sortable-placeholder {
+  border: 1px dashed red;
+  background: none;
+}
+
+.ui-sortable-placeholder{
+  background-color: red;
+  border:solid 3px red;
+}
+
+.rotate{  transform: rotate(5deg); }
+
+
+
+.cplaceholder{
+  background-color: $cs1;
+  @include border-radius(3px);
+}
+
+
+a { background: transparent; }
+a:active,
+a:hover { outline: 0; }
+
+
+.BoxLinkAdd{
+
+  :hover {
+    background-color: $cs_hover;
+
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+
+    a{ text-decoration: underline; }
+
+  }
+
+}
+
+.linkadd
+{
+  a { color: $ft_addtache; }
+  padding: 10px;
+
+}
+
+
+
+.mpi{
+  color: $ft_titre;
+  font-size: 1.2em;
+}
+
+
+.addCat {
+  display: inline;
+  position: relative;
+  float: left;
+  margin-top: 7px;
+}
+
+.addCatBox{
+  min-height:100px;
+  float:left;
+  @include border-radius(4px);
+  background-color: $cs-block;
+  color:$ft_blk;
+  position: relative;
+  float: left;
+  padding: 5px;
+  margin-top: 7px;
+
+  .SubNewCatBox{
+    display: block;
+    color:$ft_w;
+    font-weight: bold;
+    background-color: $cs2;
+    margin: 10px;
+    border-radius: 4px;
+    border-bottom:1px solid  $cs3;
+
+    &:hover{
+      background-color: #6b72a9;
+      border-bottom:1px solid  $cs3;
+    }
+  }
+
+  .BtnNewCatBox{
+    display: block;
+    background-color: transparent;
+    font-size: 2em;
+    margin-left: -20px;
+    color:$ft_titre;
+    &:hover{
+      color:#57534b;
+    }
+  }
+
+}
+
+
+
+.addTaskBox{
+  display: block;
+
+
+  border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  color:$ft_blk;
+  width: 100%;
+  padding: 3px;
+
+  .FormNewTaskBox{
+    display: block;
+
+    width: 98%;
+    margin: 0.2em;
+    padding: 5px;
+    height: 65px;
+
+    border-radius: 3px;
+    border:none;
+    background-color: $ft_w;
+    color:$ft_titre;
+
+
+    &:hover{
+      background-color: #f1ede8;
+      border-bottom: solid 1px #bbb7af;
+      transition: background-color 0.4s, border 0.4s;
+    }
+  }
+
+  .SubNewTaskBox{
+
+    display: block;
+    color:$ft_w;
+    font-weight: bold;
+    background-color: $cs2;
+    border-radius: 4px;
+    border-bottom:1px solid  $cs3;
+    padding: 5px;
+    width: 100%;
+
+    &:hover{
+      background-color: #6b72a9;
+      border-bottom:1px solid  $cs3;
+    }
+  }
+
+  .BtnNewTaskBox{
+    background-color: transparent;
+    font-size: 2em;
+    color:$ft_titre;
+    &:hover{
+      color:#57534b;
+    }
+  }
+
+}
+
+
