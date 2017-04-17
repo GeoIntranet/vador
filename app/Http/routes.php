@@ -38,7 +38,6 @@ Route::group(['middleware' =>'gv'], function () {
 
     //DASHBOARD
     Route::get('/board','BoardController@index')->middleware('gv');
-
     Route::get('/flash', array('as' =>'flash' ,'uses'=>'FlashControlle@flash'));
     Route::post('/post/flash', array('as' =>'flash' ,'uses'=>'FlashControlle@errorsFlash'));
 //ROUTE DEVELOP POUR STYLEGUIDE CSS -----------------------------------------------------------------------------------------
