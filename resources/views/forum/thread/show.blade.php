@@ -71,7 +71,7 @@
                         <div class="column">
                             <h3>
                                 @if( $thread->createur->USER_id == Auth::id() or $admin  == Auth::id() )
-                                    <a href=""><i class="fa fa-pencil"></i></a>
+                                    <a href="{{action('ThreadController@edit',[$thread->channel_id,$thread->id])}}"><i class="fa fa-pencil"></i></a>
                                 @endif
                                     {{$thread->title}}
                             </h3>
@@ -106,17 +106,19 @@
             </div>
             <div class="row">
 
-                <div class='column medium-offset-7 medium-5  b fts_060 right'>
+                <div class='column medium-offset-7 medium-5   fts_060 right'>
 
-                    <span class="fa-stack fa-3x fts_140 ">
+                    <span class="fa-stack fa-3x fts_140 b">
                       <i class="fa fa-circle fa-stack-2x red"></i>
                       <strong class="fa-stack-1x fa fa-heart white fts_075 "></strong>
                     </span>
-                    <span class="fa-stack fa-3x fts_140 blue">
+
+                    <span class="fa-stack fa-3x fts_140 blue b">
                           <i class="fa fa-circle fa-stack-2x "></i>
                           <strong class="fa-stack-1x fa fa-thumbs-up fts_075 white"></strong>
                     </span>
-                    <span>
+
+                    <span class="fts_110">
                          2 j'aimes - 3 commentaires
                     </span>
                 </div>
