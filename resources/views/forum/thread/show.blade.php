@@ -66,11 +66,13 @@
             {!! Form::close() !!}
 
             <div class="row align-middle ">
-                <div class="column medium-10">
+                <div class="column medium-11 ">
                     <div class="row">
                         <div class="column">
                             <h3>
-
+                                @if( $thread->createur->USER_id == Auth::id() or $admin  == Auth::id() )
+                                    <a href=""><i class="fa fa-pencil"></i></a>
+                                @endif
                                     {{$thread->title}}
                             </h3>
                         </div>
@@ -80,34 +82,49 @@
                             par {{userName($thread->createur->USER_id,'noID')}} le {{$thread->created_at->format('d-m-Y')}}
                         </div>
                     </div>
+                    <br>
+                    <div class="row padl10">
+                        <div class="column ">
+                            {!! $thread->body !!}
+                        </div>
+                    </div>
                 </div>
                 @if( $thread->createur->USER_id == Auth::id() or $admin  == Auth::id() )
                     <div class="column medium-1 right ">
-                        <a href="{{action('ThreadController@edit',[$thread->channel_id ,$thread->id])}}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x dark"></i>
-                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="column medium-1 left ">
-                        <a href="{{action('ThreadController@disableThread',[$thread->channel_id,$thread->id])}}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x red"></i>
-                                <i class="fa fa-times fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
+                        <div class="row">
+                            <div class="column ">
+                                <a href="{{action('ThreadController@disableThread',[$thread->channel_id,$thread->id])}}">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x {{$color}}"></i>
+                                        <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 @endif
-
             </div>
+            <div class="row">
 
-            <br>
-            <div class="row padl10">
-                <div class="column ">
-                    {!! $thread->body !!}
+                <div class='column medium-offset-7 medium-5  b fts_060 right'>
+
+                    <span class="fa-stack fa-3x fts_140 ">
+                      <i class="fa fa-circle fa-stack-2x red"></i>
+                      <strong class="fa-stack-1x fa fa-heart white fts_075 "></strong>
+                    </span>
+                    <span class="fa-stack fa-3x fts_140 blue">
+                          <i class="fa fa-circle fa-stack-2x "></i>
+                          <strong class="fa-stack-1x fa fa-thumbs-up fts_075 white"></strong>
+                    </span>
+                    <span>
+                         2 j'aimes - 3 commentaires
+                    </span>
                 </div>
+
+
             </div>
+
+
 
             <hr class="emp">
 

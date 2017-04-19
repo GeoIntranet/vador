@@ -19,7 +19,7 @@ class ThreadController extends Controller
      */
     public function __construct()
     {
-        $this->admin = 48;
+
     }
 
 

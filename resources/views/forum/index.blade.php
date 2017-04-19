@@ -99,7 +99,6 @@
                           <i class="fa fa-square fa-stack-2x"></i>
                           <strong class="fa-stack-1x text-primary white fts_075">{{$thread->replies_count}}</strong>
                        </span>
-
                     </div>
                 </div>
                 <hr class="emp">
