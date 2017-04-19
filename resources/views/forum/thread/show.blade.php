@@ -104,10 +104,20 @@
                     </div>
                 @endif
             </div>
-            <div class="row">
 
-                <div class='column medium-offset-7 medium-5   fts_060 right'>
+            <div class="row align-middle">
 
+                <div class="column medium-6 left fts_070  pad10">
+                    <span class="bg_lightgrey pad5">
+                     <a href="" ><b>J</b>'aime</a>
+                    </span>
+                     &nbsp;
+                    <span class="bg_lightgrey pad5">
+                         <a href="{{action('RepliesController@toggleWriteMode')}}"><b>C</b>ommente</a>
+                    </span>
+                </div>
+
+                <div class='column  medium-6   fts_060 right  pad10'>
                     <span class="fa-stack fa-3x fts_140 b">
                       <i class="fa fa-circle fa-stack-2x red"></i>
                       <strong class="fa-stack-1x fa fa-heart white fts_075 "></strong>
