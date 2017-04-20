@@ -87,7 +87,15 @@
                         </div>
                         <div class="row padl10 fts_080">
                             <div class="column  ">
-                                <?php $body = substr( strip_tags ($thread->body),0,60) ?>
+                                <?php
+                                    $body = $thread->body;
+                                    $body = strip_tags ($body);
+                                    $body = htmlspecialchars ($body);
+                                    $b = deleteBrPlus($body);
+                                    $body = substr( $b,0,60);
+
+                                ?>
+
                                 {!!  $body !!} ...
                             </div>
                         </div>

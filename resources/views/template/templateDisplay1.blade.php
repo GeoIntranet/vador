@@ -1,5 +1,8 @@
+@section('t')
+    board
+@stop
 
-                        <div class=" menu_mrg">
+<div class=" menu_mrg">
                             <div class="row">
                                 <div class="medium-12 column" >
                                     @include('flash.flash')

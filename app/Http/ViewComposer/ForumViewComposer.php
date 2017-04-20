@@ -22,7 +22,7 @@ class ForumViewComposer
      */
     public function compose(View $view )
     {
-        $channels  = Channel::all();
+        $channels  = Channel::OrderBy('name','ASC')->get();
         $color = 'blue';
 
         $view

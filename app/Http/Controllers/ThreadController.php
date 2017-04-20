@@ -25,7 +25,6 @@ class ThreadController extends Controller
 
     public function index(ThreadFilter $filter, $channel = null )
     {
-
         $threads = $this->getThreads($channel,$filter);
 
         return view('forum.index')
@@ -35,7 +34,6 @@ class ThreadController extends Controller
 
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
@@ -53,11 +51,20 @@ class ThreadController extends Controller
         return redirect()->action('ThreadController@index',null);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     */
     public function create()
     {
         return view('forum.thread.create');
     }
 
+    /**
+     * @param $channelId
+     * @param Thread $thread
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($channelId, Thread $thread)
     {
         return view('forum.thread.show', [
@@ -96,6 +103,11 @@ class ThreadController extends Controller
         }
     }
 
+    /**
+     * @param $channel
+     * @param Thread $thread
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($channel , Thread $thread)
     {
         $channels_ = Channel::all()->pluck('name','id');
@@ -107,6 +119,11 @@ class ThreadController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param Thread $thread
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request , Thread $thread)
     {
         $validate = $this->validate($request, [
@@ -119,12 +136,17 @@ class ThreadController extends Controller
        $thread->update([
            'channel_id' => request('channel_id'),
            'title' => request('title'),
-           'body' =>  $body = BBCodeParser::parse(request('body'))
+           'body' =>  request('body')
         ]);
 
         return redirect()->action('ThreadController@show',[request('channel_id'),$thread->id]);
     }
 
+    /**
+     * @param $Channel
+     * @param Thread $thread
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function disableThread($Channel,Thread $thread)
     {
         if ($this->havePermissionForDisable($thread))
