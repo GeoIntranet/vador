@@ -51,7 +51,7 @@
 
     <link rel="shortcut icon" href="{{env('domain')}}"  type="image/x-icon" />
 
-    <title>@yield('t')</title>
+    <title>Board</title>
 </head>
 
 <body class="application" >

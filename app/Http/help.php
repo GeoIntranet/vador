@@ -76,6 +76,31 @@ function nl2brplus($txt)
     //$txt = addslashes($txt);
     return $txt;
 }
+function monSubStr($chaine, $taille)
+{
+    $text = substr(html_entity_decode($chaine), 0, $taille);
+
+    return htmlentities($text);
+}
+function deleteBrPlus($txt)
+{
+    $txt = trim($txt);
+    $txt = stripslashes($txt);
+    $txt = nl2br($txt);
+    $txt = str_replace ("\r\n", '', $txt);
+    $txt = str_replace ("\n",   '', $txt);
+    $txt = str_replace ("\r",   '', $txt);
+    $txt = str_replace ('"' ,  "'", $txt);
+    $txt = str_replace ("<br />", " ", $txt);
+    $txt = str_replace ("<br /><br />", " ", $txt);
+    $txt = str_replace ("   <br>", " ", $txt);
+    $txt = str_replace ("  <br>", " ", $txt);
+    $txt = str_replace (" <br>", " ", $txt);
+    $txt = str_replace ("<br><br><br><br>", " ", $txt);
+    $txt = str_replace ("<br><br><br>", " ", $txt);
+    //$txt = addslashes($txt);
+    return $txt;
+}
 
 function br2nl($txt)
 {

@@ -2,7 +2,7 @@
 
 
 @section('t')
-    Incidents - utilisateur
+    Incidents - {{userName($manager->user,'noID')}}
 @stop
 
 

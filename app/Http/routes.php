@@ -139,12 +139,16 @@ Route::group(['middleware' =>'gv'], function () {
 
     //FORUM ---
     Route::get('forum', 'ThreadController@index');
-    Route::get('forum/{channel}', 'ThreadController@index');
-    Route::get('/forum/create', 'ThreadController@create');
-    Route::get('/forum/{channel}/{thread}', 'ThreadController@show');
     Route::post('/forum', 'ThreadController@store');
-    Route::get('/forum/{channel}/{thread}/edit/', 'ThreadController@edit');
+
+    Route::get('/forum/create', 'ThreadController@create');
+
+    Route::get('forum/{channel}', 'ThreadController@index');
     Route::post('/forum/{thread}', 'ThreadController@update');
+
+    Route::get('/forum/{channel}/{thread}', 'ThreadController@show');
+
+    Route::get('/forum/{channel}/{thread}/edit/', 'ThreadController@edit');
     Route::get('/forum/{channel}/{thread}/disable', 'ThreadController@disableThread');
     Route::post('/forum/{channel}/{thread}/replies', 'RepliesController@store');
 

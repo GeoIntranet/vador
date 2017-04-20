@@ -4,8 +4,10 @@
 /storage/*.key
 /vendor
 /.idea
-/.vagrant
-Homestead.json
-Homestead.yaml
-.env
 
+.env
+bootstrap/cache/.gitignore
+database/.gitignore
+storage/app/
+storage/framework/.gitignore
+storage/logs/

@@ -2,7 +2,7 @@
 
 
 @section('t')
-    Incidents vue
+    Incidents {{$incident['id_incid']}}
 @stop
 
 
