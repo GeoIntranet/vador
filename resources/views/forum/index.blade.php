@@ -88,15 +88,16 @@
                         <div class="row padl10 fts_080">
                             <div class="column  ">
                                 <?php
-                                    $body = $thread->body;
+                                    $body = Golonka\BBCode\Facades\BBCodeParser::parse($thread->body);
+                                    $body = deleteBrPlus($body);
                                     $body = strip_tags ($body);
                                     $body = htmlspecialchars ($body);
-                                    $b = deleteBrPlus($body);
-                                    $body = substr( $b,0,60);
+                                    $body = substr( $body,0,60);
 
                                 ?>
+                                {!! $body !!}
 
-                                {!!  $body !!} ...
+
                             </div>
                         </div>
 

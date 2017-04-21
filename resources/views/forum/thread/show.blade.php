@@ -85,7 +85,7 @@
                     <br>
                     <div class="row padl10">
                         <div class="column ">
-                            {!! $thread->body !!}
+                            {!! Golonka\BBCode\Facades\BBCodeParser::parse($thread->body) !!}
                         </div>
                     </div>
                 </div>

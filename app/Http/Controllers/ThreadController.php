@@ -34,6 +34,7 @@ class ThreadController extends Controller
 
     public function store(Request $request)
     {
+        $body = BBCodeParser::parse(request('body'));
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
@@ -45,7 +46,7 @@ class ThreadController extends Controller
             'channel_id' => request('channel_id'),
             'active' => 1,
             'title' => request('title'),
-            'body' =>  $body = BBCodeParser::parse(request('body'))
+            'body' =>  request('body')
         ]);
 
         return redirect()->action('ThreadController@index',null);
