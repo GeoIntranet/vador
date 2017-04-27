@@ -25,6 +25,7 @@ class ThreadController extends Controller
 
     public function index(ThreadFilter $filter, $channel = null )
     {
+
         $threads = $this->getThreads($channel,$filter);
 
         return view('forum.index')
@@ -34,7 +35,7 @@ class ThreadController extends Controller
 
     public function store(Request $request)
     {
-        $body = BBCodeParser::parse(request('body'));
+
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',

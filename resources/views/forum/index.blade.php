@@ -95,7 +95,7 @@
                                     $body = substr( $body,0,60);
 
                                 ?>
-                                {!! $body !!}
+                                {!! $body !!}...
 
 
                             </div>

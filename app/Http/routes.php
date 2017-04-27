@@ -169,7 +169,6 @@ Route::group(['middleware' =>'gv'], function () {
 
 
 
-
     Route::get('/prototype/locator', 'locatorController@prototype');
     Route::get('/relations', 'LocatorController@relations');
     Route::get('/hydrate', 'LocatorController@hydrate');

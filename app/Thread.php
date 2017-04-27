@@ -1,11 +1,14 @@
 <?php
 namespace App;
 
+use App\Http\Controllers\Lib\Feature\Favoritable;
 use App\Http\Controllers\Lib\Filter\ThreadFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 class Thread extends Model
 {
+
+    use Favoritable;
     /**
      * Don't auto-apply mass assignment protection.
      *
@@ -95,6 +98,11 @@ class Thread extends Model
     public function createur()
     {
         return $this->hasOne('App\User','USER_id','user_id');
+    }
+
+    public function favoritable()
+    {
+        return $this->morphTo();
     }
 
 }
