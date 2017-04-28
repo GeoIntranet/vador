@@ -166,5 +166,4 @@ class ThreadController extends Controller
         return $thread->user_id == Auth::id() or $this->admin == Auth::id();
     }
 
-
 }

@@ -166,6 +166,7 @@ Route::group(['middleware' =>'gv'], function () {
     Route::get('/proto/multi', 'locatorController@protoMulti');
     Route::get('/proto/userstat', 'ProtoController@userstat');
     Route::get('/proto/injection', 'ProtoController@autoInjection');
+    Route::get('/proto/morph', 'ProtoController@morph');
 
 
 

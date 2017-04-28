@@ -11,7 +11,5 @@ namespace App\Http\Controllers\Lib\Feature;
 
 trait Favoritable
 {
-        static function buz(){
-            return 'buz';
-        }
+
 }

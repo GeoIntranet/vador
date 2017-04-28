@@ -100,9 +100,9 @@ class Thread extends Model
         return $this->hasOne('App\User','USER_id','user_id');
     }
 
-    public function favoritable()
+    public function favoris()
     {
-        return $this->morphTo();
+        return $this->morphMany('App\Favoris', 'favorited');
     }
 
 }
