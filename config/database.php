@@ -54,9 +54,9 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_EURO', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'vador'),
+            'database' => env('DB_DATABASE', 'yoda'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
@@ -70,7 +70,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_EURO', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE_EURO', 'vador'),
+            'database' => env('DB_DATABASE_EURO', 'yoda'),
             'username' => env('DB_USERNAME_EURO', 'root'),
             'password' => env('DB_PASSWORD_EURO', ''),
             'charset' => 'utf8',

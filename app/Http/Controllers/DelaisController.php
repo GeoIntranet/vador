@@ -120,8 +120,42 @@ class DelaisController extends Gestion
         var_dump('retour');
     }
 
-
+    /**
+     *
+     */
     public function index()
+    {
+        $commande = new Commande();
+
+        $commandesActive = $commande
+            ->active()
+            ->with('ligne','achat.action')
+            ->get();
+
+        $commandes= [];
+
+        foreach ($commandesActive as $index => $commande) {
+            $lignes = $commande->ligne->toArray();
+            $achats = $commande->achat;
+            
+            var_dump($achats);
+
+            foreach ($lignes as $index_ligne => $ligne) {
+                $commandes[$commande->id_cmd]['lignes'][]=$ligne['desc_article'];
+            }
+
+            //var_dump($commande->ligne->toArray());
+        }
+
+        var_dump($commandes);
+        return response('$commandeEnCours');
+    }
+
+
+    /**
+     * @return $this
+     */
+    public function index_()
     {
 
         /*
@@ -139,6 +173,7 @@ class DelaisController extends Gestion
         else
         {
             $cmd = app(WorkWithCommande::class) ;
+
             $itemSearcheable = 'current' ;
 
             $cmd = $cmd
@@ -150,6 +185,7 @@ class DelaisController extends Gestion
                 ->withAchat()
                 ->handle()
             ;
+
 
             $cmd_ = serialize($cmd);
             $cache = Redis::set('cacheDelaisRender',$cmd_);

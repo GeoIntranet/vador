@@ -305,7 +305,8 @@ class WorkWithCommande extends WorkWith
         $userFilter= Session::has('delaisControllerUserFilter') ? true : false;
 
         $this->options['date'] = $dateFilter == TRUE ? Session::get('delaisControllerDateFilter'): 'DESC';
-        $this->options['categorie']= $categorieFilter == TRUE ? Session::get('delaisControllerCategorieFilter'): 'ALL';
+        $this->options['categorie']= 'ALL';
+        //$this->options['categorie']= $categorieFilter == TRUE ? Session::get('delaisControllerCategorieFilter'): 'ALL';
         $this->options['user'] = $userFilter == TRUE ? explode('_',Session::get('delaisControllerUserFilter')): 'ALL';
 
         return $this;

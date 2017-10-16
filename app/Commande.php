@@ -107,7 +107,6 @@ class Commande extends Model
     public function scopeEnCours($query , $option = null)
     {
 
-
          $query = $query
             ->join('it_bl', 'commandes.id_cmd', '=', 'it_bl.id_cmd', 'left outer')
             ->join('client', 'client.id_client', '=', 'commandes.id_clientlivr', 'inner')
