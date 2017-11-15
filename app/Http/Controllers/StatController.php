@@ -70,10 +70,10 @@ class StatController extends Gestion
      */
     public function commandAll(Request $request ,$user ,$year)
     {
-
         $this->statUserGestion->initOption($user,$year,$this->getTechnicienUser());
 
         $option = $this->statUserGestion->getOption();
+
         $userContribution = $this->statUserGestion->contribution($option,$option['user']);
         $this->statUserGestion->byMonth($userContribution);
         $nombreCommandeYear = $this->statUserGestion->commandes($option)->count();

@@ -51,9 +51,12 @@
 
     <link rel="stylesheet" href="{{asset(elixir('css/app.css'))}}">
 
-
-
     <link rel="shortcut icon" href="{{env('domain')}}"  type="image/x-icon" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+
+
+
 
 
     <title>@yield('t')</title>
@@ -93,6 +96,8 @@
               <script type="text/javascript" src="{{asset('js/jq.js')}}"></script>
               <script type="text/javascript" src="{{asset('js/all.js')}}"></script>
               <script type="text/javascript" src="{{asset('js/bbcode.js')}}"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
 
           </div>
     </div>
@@ -107,6 +112,9 @@
     $(document).foundation();
 
 
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
 
     $(document).ready(function(){
 

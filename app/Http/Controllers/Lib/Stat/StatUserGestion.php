@@ -51,7 +51,6 @@ class StatUserGestion extends UserGestion
 
     public function getNow()
     {
-
         return $this->now;
     }
     /**
@@ -149,6 +148,7 @@ class StatUserGestion extends UserGestion
      */
     public function initOption($user , $year, $userGobal)
     {
+
         $this->userGlobal = ($userGobal);
         $this->option['intervalle'] = '';
         $this->option['user'] = '';
