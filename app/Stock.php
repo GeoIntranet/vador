@@ -84,12 +84,14 @@ class Stock extends Model
 
     public function scopeToAudit($query)
     {
-        return $query
+        return  $query
             ->whereNull('out_datetime')
             ->whereNull('aud_datetime')
             ->where('in_datetime','>','2011-11-01')
-            ->where('in_presta','like','%PO:%')
+            ->whereNotNull('in_po')
             ->get() ;
+
+            
     }
 
     /**

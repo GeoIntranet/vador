@@ -120,6 +120,14 @@ class Incident extends Model
 
          return $query ;
     }
+
+    public function scopeActifs($query,$user = null)
+    {
+        if( $user <> null ) $query = $query -> wherein('id_tech', $user) ;
+        $query = $query -> where('id_etat', '<=', '7') ;
+
+        return $query ;
+    }
     public function scopeList($query,$list)
     {
         $list = $list->toArray();

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
 use DB;
+use function App\__construct;
 
 /**
  * Class User
@@ -12,6 +13,8 @@ use DB;
  */
 class User extends Authenticatable
 {
+
+    
 
     protected $attributes;
     protected $relations;
