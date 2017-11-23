@@ -1,15 +1,4 @@
 <?php
-
-
-
-/**
- * Created by PhpStorm.
- * User: gvalero
- * Date: 03/03/2017
- * Time: 13:09
- */
-
-
 /**
  * return le nom de l'id utilisateur
  * Format : Geoffrey VALERO [48]

@@ -4,4 +4,3 @@
 
 var test = function(){
      console.log('xedfdrf')
-}

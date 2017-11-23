@@ -33,6 +33,7 @@ class Module
     {
         $this->user = $id;
     }
+
     public function maintenance()
     {
     }
@@ -42,24 +43,19 @@ class Module
         Redis::del($key);
     }
 
-    public function cacheLogic( $key , $function , $object , $arg = null )
+    public function cacheLogic($key, $function, $object, $arg = null)
     {
         $cache = Redis::get($key);
 
-        if( ! $cache)
-        {
-            if($arg)
-            {
+        if (!$cache) {
+            if ($arg) {
                 $data = $object->$function($arg);
-            }
-            else{
+            } else {
                 $data = $object->$function();
             }
 
-            Redis::set($key,serialize($data));
-        }
-        else
-        {
+            Redis::set($key, serialize($data));
+        } else {
             $data = unserialize($cache);
         }
 
@@ -68,7 +64,6 @@ class Module
 
     private function isLog()
     {
-
         return isset(Auth::user()->id);
     }
 

@@ -5,6 +5,7 @@ use App\Categorie;
 use App\Console\Commands\Board\IncidentCache;
 
 Route::get('/phpinfo',function(){
+
 dd(phpinfo());
 });
 
@@ -17,6 +18,8 @@ Route::get('/',function(){
     //var_dump($b);
     $test =  UserName(48);
     //return 'ici';
+
+
 });
 
 Route::auth();
