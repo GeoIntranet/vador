@@ -70,7 +70,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_EURO', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE_EURO', 'yoda'),
+            'database' => env('DB_DATABASE_EURO', 'euro'),
             'username' => env('DB_USERNAME_EURO', 'root'),
             'password' => env('DB_PASSWORD_EURO', ''),
             'charset' => 'utf8',

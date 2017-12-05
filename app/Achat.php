@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Achat extends Model
 {
-    protected $connection ="eurocomputer";
+    protected $connection = "eurocomputer" ;
 
     protected $table ='pd';
 
@@ -48,6 +48,15 @@ class Achat extends Model
         return $query
             ->select('*')
             ->whereIn('id_pd',$da)
+            ->get();
+    }
+
+    public function scopeAcheteurs($query , $users)
+    {
+        return $query
+            ->select('*')
+            ->whereIn('crea_id_user',$users)
+            ->WherenotIn('in_etat',['X','C','R','A'])
             ->get();
     }
     
