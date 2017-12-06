@@ -14,13 +14,12 @@ class TeamController extends Controller
     {
         $team = [ 48, 51, 56 ];
 
-        $work = $teamOrganiser
-            ->setTeam($team)
-            ->getIncidents()
-            ->getAchats()
-        ;
+        $work = $teamOrganiser->setTeam($team) ;
 
-        var_dump($work);
+        $incidents = $work->getIncidents();
+        $achats = $work->getAchats();
+
+       
 
 
 

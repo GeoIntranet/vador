@@ -9,10 +9,11 @@ namespace App\Http\Controllers\Lib\Team;
 
 class TeamOrganiser
 {
-    public $team;
-    public $incidents;
-    public $achatsOrganiser;
     protected $incidentsOrganiser;
+    public $achatsOrganiser;
+    public $incidents;
+    public $achats;
+    public $team;
 
     /**
      * TeamOrganiser constructor.
@@ -41,7 +42,7 @@ class TeamOrganiser
     {
         $this->incidents = $this->incidentsOrganiser->getIncidents($this->team);
 
-        return $this;
+        return $this->incidents;
     }
 
     /**
@@ -49,7 +50,9 @@ class TeamOrganiser
      */
     public function getAchats()
     {
-        return  $this->achatsOrganiser->getAchats($this->team);
+        $this->achats = $this->achatsOrganiser->getAchats($this->team);
+
+        return $this->achats;
     }
 
 }
