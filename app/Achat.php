@@ -11,12 +11,21 @@ class Achat extends Model
 
     protected $table ='pd';
 
+    protected $relations;
+    protected $attributes;
+
 
     public function __construct()
     {
 
     }
 
+    /**
+     * recherche une liste de demande d'achats
+     * @param $query
+     * @param $daList
+     * @return mixed
+     */
     public function ScopesearchAchatInList($query ,$daList)
     {
         return $query
@@ -26,6 +35,12 @@ class Achat extends Model
 
     }
 
+    /**
+     * recherches les da associer a une liste de bl
+     * @param $query
+     * @param $blList
+     * @return mixed
+     */
     public function ScopeSearchAchatByCmd($query,$blList)
     {
         return $query
@@ -34,6 +49,12 @@ class Achat extends Model
             ->get();
     }
 
+    /**
+     * recherche da associé a UN bl
+     * @param $query
+     * @param $bl
+     * @return mixed
+     */
     public function scopeSearchFromBl($query , $bl)
     {
         return $query
@@ -42,7 +63,12 @@ class Achat extends Model
             ->get();
     }
 
-
+    /**
+     * recherche une da
+     * @param $query
+     * @param $da
+     * @return mixed
+     */
     public function scopeSearchFromDa($query , $da)
     {
         return $query
@@ -51,13 +77,19 @@ class Achat extends Model
             ->get();
     }
 
+    /**
+     * recherche les da associé a un / des users
+     * @param $query
+     * @param $users
+     * @return mixed
+     */
     public function scopeAcheteurs($query , $users)
     {
         return $query
             ->select('*')
             ->whereIn('crea_id_user',$users)
-            ->WherenotIn('in_etat',['X','C','R','A'])
-            ->get();
+            ->WherenotIn('in_etat',['X','R','A'])
+            ;
     }
     
     
@@ -93,5 +125,10 @@ class Achat extends Model
     public function action()
     {
         return $this->hasMany(AchatAction::class,'id_pd','id_pd');
+    }
+
+    public function po()
+    {
+        return $this->belongsTo(PO::class,'po_id','po_id');
     }
 }

@@ -19,8 +19,7 @@ class TeamController extends Controller
         $incidents = $work->getIncidents();
         $achats = $work->getAchats();
 
-       
-
+        var_dump($achats);
 
 
 

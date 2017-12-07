@@ -12,9 +12,7 @@ use App\Achat;
 
 class AchatsOrganiser
 {
-    /**
-     * @var \App\Achat
-     */
+    public $achats;
     private $achat;
 
     /**
@@ -27,7 +25,12 @@ class AchatsOrganiser
 
     public function getAchats($team)
     {
-        return $this->achat->acheteurs($team)->toArray();
-        die();
+        $this->achats =  $this->achat->acheteurs($team)->with('po')->get();
+        $achats_=[];
+        foreach ($this->achats as $index => $achats) {
+            $achats_[$achats->in_etat][$achats->id_pd]=$achats;
+        }
+        var_dump($this->achats->pluck('id_pd'));
+
     }
 }
