@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class Achat extends Model
 {
+    protected $primaryKey = 'id_pd';
     protected $connection = "eurocomputer" ;
-
     protected $table ='pd';
-
     protected $relations;
+    public $timestamps = false;
     protected $attributes;
 
 
@@ -129,6 +129,6 @@ class Achat extends Model
 
     public function po()
     {
-        return $this->belongsTo(PO::class,'po_id','po_id');
+        return $this->hasOne(PO::class,'po_id','id_po');
     }
 }

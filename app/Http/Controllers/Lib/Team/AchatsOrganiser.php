@@ -25,12 +25,29 @@ class AchatsOrganiser
 
     public function getAchats($team)
     {
-        $this->achats =  $this->achat->acheteurs($team)->with('po')->get();
+        $this->achats =  $this->achat->with('po')->acheteurs($team)->get();
+
         $achats_=[];
         foreach ($this->achats as $index => $achats) {
-            $achats_[$achats->in_etat][$achats->id_pd]=$achats;
-        }
-        var_dump($this->achats->pluck('id_pd'));
 
+            if($achats->po <> null){
+                $achats_['po_index'][$achats->po->po_id]=$achats->id_pd;
+                $achats_['po'][$achats->po->po_id]=$achats->po;
+            }
+
+            $achats_['state'][$achats->in_etat][$achats->id_pd]=$achats;
+
+            if(is_numeric($achats->id_cmd))
+            {
+                $achats_['besoin']['bl'][$achats->id_cmd]=$achats->id_pd;
+            }
+            else{
+                $achats_['besoin']['stock'][]=$achats->id_pd;
+            }
+
+            $achats_['pd'][$achats->id_pd]=$achats;
+        }
+
+        var_dump($achats_);
     }
 }
