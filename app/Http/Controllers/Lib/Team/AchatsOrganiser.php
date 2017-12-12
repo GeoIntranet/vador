@@ -9,8 +9,9 @@
 namespace App\Http\Controllers\Lib\Team;
 
 use App\Achat;
+use App\Http\Controllers\Lib\Achat\AchatBusiness;
 
-class AchatsOrganiser
+class AchatsOrganiser extends AchatBusiness
 {
     public $achats;
     private $achat;
