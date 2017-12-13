@@ -107,6 +107,7 @@
             {{-----------------------------------------------------------------------------------------------------------------------------------------------------------------}}
 
             <hr class="emp">
+            @php //var_dump($incidents->incident) @endphp
             Incident que l'on peut traité -
 
             @foreach($incidents->solvable as $presta => $incidents)
@@ -114,17 +115,18 @@
                 @if($presta == 1)
                     <br>
                     <br>
-                    <b>LES GARANTIE SUR VENTES :</b>
+                    <b> <u> LES GARANTIE SUR VENTES :</u></b>
                     @foreach($incidents as $index => $incident)
                         <div class="col-lg-3">
-                            {{$incident->id_incid}}
+                            <b>{{$incident->id_incid}}</b>
                             -
                             {{ ($incident->nsoc) }}
                             -
-                            <small>{!! $incident->titre !!}</small>
+                            <small>{!!strtolower($incident->titre)!!}</small>
                             -
-                            <small>
-                                <small>il y a {{(new \Carbon\Carbon())->diffInDays( new \Carbon\Carbon($incident->lastact))}} jours</small>
+                            <small class="">
+                                @php $diff = (new \Carbon\Carbon())->diffInDays( new \Carbon\Carbon($incident->lastact)) @endphp
+                                <span>le {{$incident->open->format('d/m')}}</span>
                             </small>
                         </div>
                     @endforeach
@@ -133,17 +135,19 @@
                 @if($presta == 4)
                         <br>
                         <br>
-                        <b>HORS GARANTIE : </b>
+                        <b> <u>HORS GARANTIE : </u></b>
                     @foreach($incidents as $index => $incident)
                             <div class="col-lg-3">
-                                {{$incident->id_incid}}
+
+                                <b>{{$incident->id_incid}}</b>
                                 -
                                 {{ ($incident->nsoc) }}
                                 -
-                                <small>{!! $incident->titre !!}</small>
+                                <small>{!! strtolower($incident->titre) !!}</small>
                                 -
-                                <small>
-                                    <small>il y a {{(new \Carbon\Carbon())->diffInDays( new \Carbon\Carbon($incident->lastact))}} jours</small>
+                                <small class="">
+                                    @php $diff = (new \Carbon\Carbon())->diffInDays( new \Carbon\Carbon($incident->lastact)) @endphp
+                                    <span>le {{$incident->open->format('d/m')}}</span>
                                 </small>
                     @endforeach
                 @endif
