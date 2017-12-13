@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers\Lib\Achat;
 
-class AchatBusiness
+class AchatHelper
 {
     
     const DEMANDER      = "d";

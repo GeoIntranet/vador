@@ -40,17 +40,7 @@ class IncidentOrganiser
 
             if($incident_priority->search($incident->id_etat) !== false)
             {
-                $this->solvable[$incident->id_garant][$incident->id_incid]=
-                    [
-                        'inc' => $incident->id_incid,
-                        'nsoc' => $incident->nsoc,
-                        'id_cmd' => $incident->id_cmd,
-                        'open' => $incident->open,
-                        'lastact' => $incident->lastact,
-                        'id_etat' => $incident->id_etat,
-                        'id_tech' => $incident->id_tech,
-                        'id_garant' => isset($incident->id_garant) ? $incident->id_garant : null,
-                    ];
+                $this->solvable[$incident->id_garant][$incident->id_incid]= $incident ;
             }
             else{
                 $this->notSolvable[]=

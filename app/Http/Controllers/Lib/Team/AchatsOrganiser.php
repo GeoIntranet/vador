@@ -9,9 +9,10 @@
 namespace App\Http\Controllers\Lib\Team;
 
 use App\Achat;
-use App\Http\Controllers\Lib\Achat\AchatBusiness;
+use App\Http\Controllers\Lib\Achat\AchatHelper;
+use Carbon\Carbon;
 
-class AchatsOrganiser extends AchatBusiness
+class AchatsOrganiser extends AchatHelper
 {
     public $achats;
     private $achat;
@@ -26,29 +27,39 @@ class AchatsOrganiser extends AchatBusiness
 
     public function getAchats($team)
     {
-        $this->achats =  $this->achat->with('po')->acheteurs($team)->get();
+        $this->achats['models'] =  $this->achat->with('po','action')->acheteurs($team)->get();
 
         $achats_=[];
-        foreach ($this->achats as $index => $achats) {
+
+        foreach ($this->achats['models'] as $index => $achats) {
+
+            $this->achats['date'][$achats->id_pd]=
+                [
+                    'debut' =>  $achats->action->first()->dt_pd_action,
+                    'fin' =>  Carbon::now()->format('Y-m-d'),
+
+                ] ;
+
+            $this->achats['dt'][$achats->id_pd]=$achats->action->first()->dt_pd_action ;
 
             if($achats->po <> null){
-                $achats_['po_index'][$achats->po->po_id]=$achats->id_pd;
-                $achats_['po'][$achats->po->po_id]=$achats->po;
+                $this->achats['po_index'][$achats->po->po_id]=$achats->id_pd;
+                $this->achats['po'][$achats->po->po_id]=$achats->po;
             }
 
-            $achats_['state'][$achats->in_etat][$achats->id_pd]=$achats;
+            $this->achats['state'][$achats->in_etat][$achats->id_pd]=$achats;
 
             if(is_numeric($achats->id_cmd))
             {
-                $achats_['besoin']['bl'][$achats->id_cmd]=$achats->id_pd;
+                $this->achats['besoin']['bl'][$achats->id_cmd]=$achats->id_pd;
             }
             else{
-                $achats_['besoin']['stock'][]=$achats->id_pd;
+                $this->achats['besoin']['stock'][]=$achats->id_pd;
             }
 
-            $achats_['pd'][$achats->id_pd]=$achats;
+            $this->achats['pd'][$achats->id_pd]=$achats;
         }
 
-        var_dump($achats_);
+        return $this;
     }
 }

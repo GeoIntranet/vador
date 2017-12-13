@@ -19,7 +19,7 @@ class TeamController extends Controller
         $incidents = $work->getIncidents();
         $achats = $work->getAchats();
 
-        var_dump($achats);
+        //var_dump($achats);
 
 
 
@@ -41,7 +41,11 @@ class TeamController extends Controller
         // COMMANDE  -> trie préalables pistolet
         // DELAIS
 
+        return view('team.index')
+            ->with('achats',$achats)
+            ->with('incidents',$incidents)
+            ;
 
-        var_dump('Team works');
+
     }
 }
