@@ -22,7 +22,7 @@
 
             {{--TITRE colorer -----------------------------------------------------------------------------------------------------------------}}
             <div class="row incRaccourci align-middle ">
-                <div class="columns left "> To DO </div>
+                <div class="columns left "> TO DO </div>
                 <div class="columns left"><i class="fa fa-globe white "></i></div>
 
             </div>
@@ -109,6 +109,8 @@
             <hr class="emp">
             @php //var_dump($incidents->incident) @endphp
             Incident que l'on peut traité -
+            
+
 
             @foreach($incidents->solvable as $presta => $incidents)
 
