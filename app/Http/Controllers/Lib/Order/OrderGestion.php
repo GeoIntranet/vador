@@ -30,10 +30,8 @@ class OrderGestion extends Gestion
      * @param $order
      * @return $this|OrderGestion
      */
-    public function searchOrder($order)
+    public function search($order)
     {
-
-
         /*Recherche des commandes en cours :collection */
         if( $order == 'current' )
         {
@@ -54,7 +52,6 @@ class OrderGestion extends Gestion
 
     public function get()
     {
-
         $error  = $this->manager->checkData($this->currentOrder);
 
         if( ! $error)
@@ -127,11 +124,8 @@ class OrderGestion extends Gestion
         $render = [];
         //var_dump($this->manager->getOption());
 
-
-
         foreach ($this->manager->commandes as $index => $commande)
         {
-
             $display = new DisplayOrder();
 
                 if(isset($commande['id_cmd']))

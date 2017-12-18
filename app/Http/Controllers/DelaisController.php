@@ -30,7 +30,6 @@ class DelaisController extends Gestion
     {
         $this->orderGestion_ = $orderGestion_;
         $this->orderGestion = $orderGestion;
-
     }
 
     public function proto()
@@ -47,7 +46,7 @@ class DelaisController extends Gestion
 //        $orders = $this->orderGestion->searchOrder($unique);
 //        $orders = $this->orderGestion->searchOrder(3170713)->get() ;
 
-        $orders = $this->orderGestion->searchOrder('current')
+        $orders = $this->orderGestion->search('current')
             ->get()
             //->withLigneMinimal()
             //->withTag()
@@ -132,13 +131,13 @@ class DelaisController extends Gestion
             ->with('ligne','achat.action')
             ->get();
 
-        $commandes= [];
+        $commandes = [];
 
         foreach ($commandesActive as $index => $commande) {
             $lignes = $commande->ligne->toArray();
             $achats = $commande->achat;
             
-            var_dump($achats);
+            //var_dump($achats);
 
             foreach ($lignes as $index_ligne => $ligne) {
                 $commandes[$commande->id_cmd]['lignes'][]=$ligne['desc_article'];

@@ -10,7 +10,6 @@ class FavoriteLink extends Model
 
     public function scopeUser($query , $id)
     {
-        return $query ->where('id_user',$id) ;
-
+        return $query -> where('id_user',$id) ;
     }
 }

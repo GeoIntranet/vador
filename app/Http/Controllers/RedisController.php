@@ -24,8 +24,8 @@ class RedisController extends Controller
             Redis::hset('CategorieController',$title,$jsonCat);
         }
 
+        return true;
         //return redirect()->back();
-
     }
 
     public function deleteCategorie()

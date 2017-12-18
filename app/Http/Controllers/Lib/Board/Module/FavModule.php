@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Lib\Board\Module;
 
 use App\FavoriteLink;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Schema;
 
 class FavModule extends Module
 {
@@ -36,22 +37,23 @@ class FavModule extends Module
     {
         $this->logic();
 
-
         return $this->data;
     }
 
     public function search()
     {
-
         $cache = Redis::get($this->key);
 
         if( ! $cache )
         {
-            $this->data = $this->favoriteLink->user($this->user)
-                ->get()
-                ->toArray();
-
-            Redis::set($this->key,serialize($this->data));
+            if(Schema::hasTable($this->favoriteLink->table))
+            {
+                $this->data = $this->favoriteLink->user($this->user)
+                    ->get()                                         
+                    ->toArray();                                    
+                                                                    
+                Redis::set($this->key,serialize($this->data));      
+            }
         }
         else
         {

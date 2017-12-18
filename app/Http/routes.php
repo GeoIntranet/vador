@@ -16,16 +16,6 @@ Route::get('/',function(){
 
     $b = app('Illuminate\Container\Container');
 
-    //var_dump($b);
-    $test =  UserName(48);
-    $pass="06051988";
-    
-    $hashed = Hash::make($pass);
-    var_dump($pass);
-    var_dump($hashed);
-    //return 'ici';
-
-
 });
 
 Route::auth();
