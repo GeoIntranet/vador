@@ -9,7 +9,6 @@ class gv
     public function __construct(Auth $auth)
     {
         $this->user = $auth::user()->id;
-
     }
 
     /**

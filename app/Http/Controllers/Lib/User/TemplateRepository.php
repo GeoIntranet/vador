@@ -9,8 +9,8 @@
 namespace App\Http\Controllers\Lib\User;
 
 
-use App\TemplateRight;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\TemplateRight;
 
 class TemplateRepository extends UserGestion
 {

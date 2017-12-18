@@ -11,7 +11,9 @@
         "barryvdh/laravel-debugbar": "^2.2",
         "laravelcollective/html": "~5.0",
         "larabug/larabug": "^1.0",
-        "golonka/bbcodeparser": "^2.2"
+        "laracasts/generators": "^1.1",
+        "xethron/migrations-generator": "dev-l5",
+        "way/generators": "dev-feature/laravel-five-stable"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

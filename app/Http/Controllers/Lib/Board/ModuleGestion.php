@@ -43,9 +43,7 @@ class ModuleGestion
             $this->data[$module] = $objet->handle();
         }
 
-        $this
-            ->toFit()
-        ;
+        $this ->toFit() ;
 
         return $this->result;
     }

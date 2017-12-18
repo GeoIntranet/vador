@@ -171,7 +171,6 @@ return [
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         App\Providers\LocatorComposerProvider::class,
         App\Providers\ForumComposerProvider::class,
-        'Golonka\BBCode\BBCodeParserServiceProvider',
 
     ],
 

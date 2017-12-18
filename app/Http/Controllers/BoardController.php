@@ -9,17 +9,13 @@
 namespace App\Http\Controllers;
 
 
-use App\cron;
-use App\Http\Controllers\Lib\Board\Module\ArriveModule;
-use App\Http\Controllers\Lib\Board\ModuleGestion;
-use App\Http\Controllers\Lib\Display\DisplayGestion;
-use App\Http\Controllers\Lib\Gestion;
 use App\Http\Controllers\Lib\User\TemplateRepository;
-use Illuminate\Support\Facades\Redis;
+use App\Http\Controllers\Lib\Display\DisplayGestion;
+use App\Http\Controllers\Lib\Board\ModuleGestion;
+use App\Http\Controllers\Lib\Gestion;
 
 class BoardController extends Gestion
 {
-
     public $userGestion;
 
     /**
@@ -29,7 +25,6 @@ class BoardController extends Gestion
     {
         $this->display = $displayGestion;
         $this->user = $userGestion->handle();
-
     }
 
     public function index()

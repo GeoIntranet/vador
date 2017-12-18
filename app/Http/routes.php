@@ -3,6 +3,7 @@
 
 use App\Categorie;
 use App\Console\Commands\Board\IncidentCache;
+use Illuminate\Support\Facades\Hash;
 
 Route::get('/phpinfo',function(){
 
@@ -17,6 +18,11 @@ Route::get('/',function(){
 
     //var_dump($b);
     $test =  UserName(48);
+    $pass="06051988";
+    
+    $hashed = Hash::make($pass);
+    var_dump($pass);
+    var_dump($hashed);
     //return 'ici';
 
 
