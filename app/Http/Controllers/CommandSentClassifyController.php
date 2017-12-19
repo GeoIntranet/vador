@@ -115,6 +115,7 @@ class CommandSentClassifyController extends Gestion
 
     public function show(Request $request,$id,$ligneId)
     {
+
         $users= $this->getUsers();
         $clients=[];
         $ligne__=[];
@@ -122,7 +123,9 @@ class CommandSentClassifyController extends Gestion
         $categorie=[];
 
         $commande_bl = $this->commande->where('id_cmd',$id)->first();
+        //var_dump($commande_bl);
         $date_sent = $commande_bl->date_livr->format('Y-m-d');
+
 
         $commandes = $this->commande
             ->select('id_cmd','id_clientlivr')
@@ -136,10 +139,15 @@ class CommandSentClassifyController extends Gestion
         $lignes = $this->integer->where('bl',$id)->get();
         $ligneSelected = $this->integer->find($ligneId);
 
+
+
         foreach ($lignes as $index => $ligne)
         {
+        
             $categorie[$ligne->id] = $this->classify->findCategorie($ligne);
+            //var_dump($categorie);
             $arayLignePrestation[$ligne->id]=$ligne->prestation;
+            //var_dump($ligne->prestation);
             $ligne__[$ligne->id] = $ligne->id;
             $clients[] = $ligne->client_livr;
             $clients[] = $ligne->client_fact;
@@ -147,6 +155,7 @@ class CommandSentClassifyController extends Gestion
 
         $prestation = $this->getPrestation();
         $catGlobal = $this->getCategorieGlobal();
+
 
 
         return view ('stat.sent.show')

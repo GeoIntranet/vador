@@ -147,8 +147,8 @@ class ClassifyGestion
     public function fill($data)
     {
         $detail = $this->detailData($data);
+
         $cat =$this->searchCategorie($detail['categorie']);
-        //var_dump($cat);
 
         $this->integer[]=[
             'bl' => $data->id_cmd,
@@ -199,7 +199,8 @@ class ClassifyGestion
         $data['date_cmd'] = is_object($dt_cmd) ? $dt_cmd->copy()->format('Y-m-d') : $dt_livr;
         $data['option'] = substr($data->code_article,-1,1) == '*' ? TRUE : FALSE ;
         $data['laps_time'] = (is_object($dt_livr) AND is_object($dt_cmd)) ? $dt_livr->diffInMinutes($dt_cmd) :false ;
-        $data['categorie'] = collect(json_decode($this->categorie[$data->type_article]))->search(1) ;
+
+        $data['categorie'] = collect(json_decode($this->categorie[$data->type_article]))->search(1);
 
         return $data;
     }

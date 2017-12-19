@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 
+use App\Categorie;
 use App\Commande;
 use App\Http\controllers\Lib\Achat\WorkWithAchat;
+use App\Http\Controllers\Lib\Categorie\CategorieGestion;
 use App\Http\controllers\Lib\Commande\WorkWithCommande;
 use App\Http\controllers\Lib\Delais\FiltreDelaisManager;
 use App\Http\controllers\Lib\Order\OrderGestion;
@@ -315,7 +317,45 @@ class DelaisController extends Gestion
 
         return 'ok';
     }
-    
+
+    public function categorieCommande()
+    {
+        $commande = new Commande();
+
+        $commandesActive = $commande
+            ->active()
+            ->with('ligne')
+            ->get();
+
+        $commandes = [];
+        $categorieGestion = app('App\Http\Controllers\Lib\Categorie\CategorieGestion');
+
+
+        $categories = $categorieGestion->categorieRedisAll();
+
+        foreach ($commandesActive as $index => $commande)
+        {
+            $bl[]=$commande->id_cmd;
+
+            foreach ($commande->ligne as $indexc => $lignec)
+            {
+
+
+                $categorieName = false;
+               if(isset($categories[$lignec->type_article])){
+                   $categorieName  = collect(json_decode($categories[$lignec->type_article]))->search(1);
+               }
+                $commandes[$lignec->id_cmd][$lignec->num_ligne] =
+                [
+                    'type' => $lignec->type_article,
+                    'categorie' => $categorieName
+                ];
+            }
+
+        }
+        
+        var_dump($commandes);
+    }
     
     
     

@@ -68,7 +68,6 @@
                         <div class="column medium-11 ">
                             <h4 class="googleB">Information</h4>
                             <p>
-
                                 Cette page permet de visualiser les donné integrer pour le bl <u>{{$bl}} - {{$client_}}</u>
                             </p>
                         </div>
@@ -177,6 +176,7 @@
                     @else
                     <div class="row">
                         <div class="column">
+                            @php var_dump($ls) @endphp
                             <h4> <i class="fa fa-pencil"></i>  - Modification integration commande - Ligne n°@if(isset($ls->commande_ligne)){{$ls->commande_ligne}} @else - @endif </h4>
                         </div>
                     </div>
@@ -191,13 +191,14 @@
                         </div>
 
                             <div class="row  ">
+
                                 @foreach($catGlobal as  $catGlobalKey_ => $catGlobalvalue_ )
                                 <div class="column medium-4 small-5 large-2 pad5 center fts_070 ">
 
                                     <?php
-                                        //var_dump($cat);
+                                        var_dump($cat);
                                         //var_dump($ls->id);
-                                        //var_dump($catGlobalKey_);
+                                        var_dump($catGlobalKey_);
                                     ?>
                                     @if(isset($ls->id))
                                         @if($cat[$ls->id]['all'][$catGlobalKey_] == 1)

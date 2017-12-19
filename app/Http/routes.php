@@ -58,6 +58,7 @@ Route::group(['middleware' =>'gv'], function () {
     Route::get('stat/envoie/show/{bl}/{l}', 'CommandSentClassifyController@show')->name('showBlInteger');
     Route::get('stat/envoie/edit/{id}/{arg}/{value}', 'CommandSentClassifyController@edit')->name('editBl');
     Route::get('stat/envoie', 'CommandSentClassifyController@index')->name('statEnvoie');
+
 // INTEGRATION --------------------------------------------------------------------------------------------------------------
     Route::any('integration/unique/{bl}', 'CommandSentClassifyController@LogicExecutionOnBl')->name('integerBl');
     Route::any('integration/day/{dt}', 'CommandSentClassifyController@LogicExecutionOnDay')->name('integerDay');
@@ -66,6 +67,7 @@ Route::group(['middleware' =>'gv'], function () {
     Route::any('integration/year/{dt}', 'CommandSentClassifyController@LogicExecutionOnYear')->name('integerYear');
     Route::get('integration/delete/specific/{bl}','CommandSentClassifyController@destroyBl');
     Route::get('integration/delete/order/{order}/{dt}','CommandSentClassifyController@disptachDestroy')->name('deleteInteger');
+
 // CALENDRIER ---------------------------------------------------------------------------------------------------------------
     Route::get('calender/integration/dt/{controller}/{dt}','CalenderController@selectDt');
     Route::get('calender/integration/sub/month/{controller}','CalenderController@subMonth');
@@ -170,6 +172,9 @@ Route::group(['middleware' =>'gv'], function () {
     Route::get('/proto/userstat', 'ProtoController@userstat');
     Route::get('/proto/injection', 'ProtoController@autoInjection');
     Route::get('/proto/morph', 'ProtoController@morph');
+
+    Route::get('/classement/current', 'DelaisController@categorieCommande');
+
 
 
 
