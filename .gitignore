@@ -11,3 +11,5 @@ database/.gitignore
 storage/app/
 storage/framework/.gitignore
 storage/logs/
+
+*.rdb
