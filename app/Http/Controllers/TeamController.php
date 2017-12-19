@@ -17,11 +17,10 @@ class TeamController extends Controller
         $work = $teamOrganiser->setTeam($team) ;
 
         $incidents = $work->getIncidents();
+
         $achats = $work->getAchats();
 
         //var_dump($achats);
-
-
 
         /**
          * Trier les incidents en 2 catégorie,
@@ -45,7 +44,6 @@ class TeamController extends Controller
             ->with('achats',$achats)
             ->with('incidents',$incidents)
             ;
-
 
     }
 }
