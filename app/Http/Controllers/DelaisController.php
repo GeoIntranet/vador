@@ -340,7 +340,8 @@ class DelaisController extends Gestion
             foreach ($commande->ligne as $indexc => $lignec)
             {
 
-
+                $ligne_test = $categorieGestion->setLigne($lignec);
+                var_dump( $ligne_test->searchLigneCategorie() );
                 $categorieName = false;
                if(isset($categories[$lignec->type_article])){
                    $categorieName  = collect(json_decode($categories[$lignec->type_article]))->search(1);

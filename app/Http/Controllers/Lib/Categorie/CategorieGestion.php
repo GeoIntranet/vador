@@ -47,6 +47,8 @@ class CategorieGestion
     public function setCommand($bl)
     {
         $this->bl = $bl;
+
+        return $this;
     }
 
     /**
@@ -56,11 +58,15 @@ class CategorieGestion
     public function setListCommand($bl)
     {
         $this->listBl = $bl;
+
+        return $this;
     }
 
     public function setLigne($ligne)
     {
         $this->ligne = $ligne;
+
+        return $this;
     }
 
     /**
