@@ -51,13 +51,16 @@ class Stock extends Model
          return  Article::query()->select('art_marque')->distinct()->whereIn('art_model',$query);
     }
 
-    public function scopeSortie($query,$option)
+    public function scopeSortie($query,$user = null)
     {
-        $query = $query->select('id_locator','out_datetime')
-            ->where('out_id_user',$option['user']);
-            $query = $query->whereBetween('out_datetime',[$option['intervalle']['begin']->format('Y-m-d') ,$option['intervalle']['end']->format('Y-m-d')]);
+        $query = $query
+            ->select('id_locator','out_datetime')
+            ->whereNotNull('out_datetime');
 
-        return $query->pluck('out_datetime','id_locator') ;
+            if($user <> null )
+                $query = $query->where('out_id_user',$user);
+
+        return $query;
     }
 
     public function scopeContributionCommand($query,$option,$user)

@@ -300,15 +300,7 @@ class DelaisController extends Gestion
                 $ligne = $categorieGestion->setLigne($lignec);
 
                 $categorieName = $ligne->searchLigneCategorie();
-                var_dump($categorieName);
-                $categorieName = false;
-                if (isset($categories[$lignec->type_article])) {
-                    $categorieName = collect(json_decode($categories[$lignec->type_article]))->search(1);
-                }
-                $commandes[$lignec->id_cmd][$lignec->num_ligne] = [
-                    'type' => $lignec->type_article,
-                    'categorie' => $categorieName,
-                ];
+                $commandes[$lignec->id_cmd][$lignec->num_ligne] = $categorieName;
             }
         }
 

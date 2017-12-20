@@ -167,6 +167,7 @@ Route::group(['middleware' =>'gv'], function () {
 
 
     // PROTO  ---
+    Route::get('/stock/mini', 'StockController@mini');
     Route::get('/stock/{id}', 'StockController@show');
     Route::get('/proto/multi', 'locatorController@protoMulti');
     Route::get('/proto/userstat', 'ProtoController@userstat');
