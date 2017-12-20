@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Categorie;
 use App\Commande;
 use App\Http\controllers\Lib\Achat\WorkWithAchat;
@@ -20,15 +19,15 @@ use Illuminate\Support\Facades\Session;
 class DelaisController extends Gestion
 {
     protected $delaisGestion;
+
     protected $delai;
+
     protected $option;
-
-
 
     /**
      * DelaisController constructor.
      */
-    public function __construct( OrderGestion_ $orderGestion_ , OrderGestion $orderGestion  )
+    public function __construct(OrderGestion_ $orderGestion_, OrderGestion $orderGestion)
     {
         $this->orderGestion_ = $orderGestion_;
         $this->orderGestion = $orderGestion;
@@ -43,18 +42,15 @@ class DelaisController extends Gestion
         * 3 commande qui existe pas varchar  ->searchOrder('ssdxgdfgdfg')
        */
 
-        $orders= [];
+        $orders = [];
 //        $unique = Commande::find(3170713);
 //        $orders = $this->orderGestion->searchOrder($unique);
 //        $orders = $this->orderGestion->searchOrder(3170713)->get() ;
 
-        $orders = $this->orderGestion->search('current')
-            ->get()
-            //->withLigneMinimal()
-            //->withTag()
-            //->withAchat()
-            ->render()
-        ;
+        $orders = $this->orderGestion->search('current')->get()//->withLigneMinimal()
+        //->withTag()
+        //->withAchat()
+        ->render();
 
         //var_dump($orders);
         $i = 0;
@@ -73,7 +69,7 @@ class DelaisController extends Gestion
             $i++;
         }
 
-        $orderDisplay=[];
+        $orderDisplay = [];
         //$orderDisplay = $orders->get()->render();
 
         //var_dump($orders->manager->clients);
@@ -91,13 +87,13 @@ class DelaisController extends Gestion
     public function achat()
     {
 
-        $testIn1 ='3170769';
-        $testIn2 = [ '4070199', '3152436', '3152294', '3152313', '3170612', '3170666', '3170666', '3170681'];
+        $testIn1 = '3170769';
+        $testIn2 = ['4070199', '3152436', '3152294', '3152313', '3170612', '3170666', '3170666', '3170681'];
         $testIn3 = '4070199_3161905_3162820_3170497_3170612_3170666_3170666_3170681';
-        $testIn4='31374';
-        $testIn5=['31376', '31375', '31374', '31373'];
-        $testIn6='31376_31375_31374_31373';
-        $test7=['021402'];
+        $testIn4 = '31374';
+        $testIn5 = ['31376', '31375', '31374', '31373'];
+        $testIn6 = '31376_31375_31374_31373';
+        $test7 = ['021402'];
 
         $testEnCours = Commande::EnCours();
         $arrayCmd = $testEnCours->pluck('id_cmd');
@@ -115,7 +111,6 @@ class DelaisController extends Gestion
          *
          * */
 
-
         //var_dump($achat);
         var_dump($render);
         var_dump('retour');
@@ -128,30 +123,26 @@ class DelaisController extends Gestion
     {
         $commande = new Commande();
 
-        $commandesActive = $commande
-            ->active()
-            ->with('ligne','achat.action')
-            ->get();
+        $commandesActive = $commande->active()->with('ligne', 'achat.action')->get();
 
         $commandes = [];
 
         foreach ($commandesActive as $index => $commande) {
             $lignes = $commande->ligne->toArray();
             $achats = $commande->achat;
-            
+
             //var_dump($achats);
 
             foreach ($lignes as $index_ligne => $ligne) {
-                $commandes[$commande->id_cmd]['lignes'][]=$ligne['desc_article'];
+                $commandes[$commande->id_cmd]['lignes'][] = $ligne['desc_article'];
             }
-
             //var_dump($commande->ligne->toArray());
         }
 
         var_dump($commandes);
+
         return response('$commandeEnCours');
     }
-
 
     /**
      * @return $this
@@ -167,49 +158,30 @@ class DelaisController extends Gestion
 
         $cache = Redis::get('cacheDelaisRender');
 
-        if($cache)
-        {
+        if ($cache) {
             $cmd = unserialize($cache);
-        }
-        else
-        {
-            $cmd = app(WorkWithCommande::class) ;
+        } else {
+            $cmd = app(WorkWithCommande::class);
 
-            $itemSearcheable = 'current' ;
+            $itemSearcheable = 'current';
 
-            $cmd = $cmd
-                ->getOptions()
-                ->setIn($itemSearcheable)
-                ->withLigne()
-                ->withTag()
-                ->withDelais()
-                ->withAchat()
-                ->handle()
-            ;
-
+            $cmd = $cmd->getOptions()->setIn($itemSearcheable)->withLigne()->withTag()->withDelais()->withAchat()->handle();
 
             $cmd_ = serialize($cmd);
-            $cache = Redis::set('cacheDelaisRender',$cmd_);
+            $cache = Redis::set('cacheDelaisRender', $cmd_);
         }
 
         $explosedUser = collect($cmd->options['user'])->flip();
 
-        return view('delai.index_correct')
-            ->with('cmd',$cmd)
-            ->with('users',$this->vendeurDelais)
-            ->with('user_',$this->getUsers())
-            ->with('explosedUser',$explosedUser)
-            ->with('categories',$this->getCategorieGlobal())
-            ;
-
+        return view('delai.index_correct')->with('cmd', $cmd)->with('users', $this->vendeurDelais)->with('user_', $this->getUsers())->with('explosedUser', $explosedUser)->with('categories', $this->getCategorieGlobal());
     }
 
-    public function filtre(Session $session,$type,$value)
+    public function filtre(Session $session, $type, $value)
     {
-        $filter = new FiltreDelaisManager($session, $type,$value);
+        $filter = new FiltreDelaisManager($session, $type, $value);
         $filter->handle();
-        return $filter;
 
+        return $filter;
     }
 
     public function create($id)
@@ -232,19 +204,15 @@ class DelaisController extends Gestion
          * - pd_actions
         */
 
-
-        if($this->orderGestion->existOrder($id))
-        {
+        if ($this->orderGestion->existOrder($id)) {
             $information = $this->orderGestion->getNewDelais();
-
 
 //            return view('delais.create')
 //                ->with('info',$information);
             return "n° de commande $id";
         }
 
-        return  "Cette commande n'existe pas ! ";
-
+        return "Cette commande n'existe pas ! ";
     }
 
     public function test()
@@ -252,11 +220,9 @@ class DelaisController extends Gestion
         //$commande = Commande::with('achat')
         //    ->find(3172364 )
         //;
-        $commandes = Commande::whereIn('id_cmd',[3142364,3162523])
-            ->get()
-        ;
+        $commandes = Commande::whereIn('id_cmd', [3142364, 3162523])->get();
 
-        $specific  = $commandes->where('pds_colis', 90);
+        $specific = $commandes->where('pds_colis', 90);
         dump($specific);
         dump($commandes);
 //
@@ -312,9 +278,6 @@ class DelaisController extends Gestion
 //        Thread::find(17)->update(request()->input());
 //        var_dump(request()->input());
 
-
-
-
         return 'ok';
     }
 
@@ -322,42 +285,33 @@ class DelaisController extends Gestion
     {
         $commande = new Commande();
 
-        $commandesActive = $commande
-            ->active()
-            ->with('ligne')
-            ->get();
+        $commandesActive = $commande->active()->with('ligne')->get();
 
         $commandes = [];
         $categorieGestion = app('App\Http\Controllers\Lib\Categorie\CategorieGestion');
 
-
         $categories = $categorieGestion->categorieRedisAll();
 
-        foreach ($commandesActive as $index => $commande)
-        {
-            $bl[]=$commande->id_cmd;
+        foreach ($commandesActive as $index => $commande) {
+            $bl[] = $commande->id_cmd;
 
-            foreach ($commande->ligne as $indexc => $lignec)
-            {
+            foreach ($commande->ligne as $indexc => $lignec) {
 
-                $ligne_test = $categorieGestion->setLigne($lignec);
-                var_dump( $ligne_test->searchLigneCategorie() );
+                $ligne = $categorieGestion->setLigne($lignec);
+
+                $categorieName = $ligne->searchLigneCategorie();
+                var_dump($categorieName);
                 $categorieName = false;
-               if(isset($categories[$lignec->type_article])){
-                   $categorieName  = collect(json_decode($categories[$lignec->type_article]))->search(1);
-               }
-                $commandes[$lignec->id_cmd][$lignec->num_ligne] =
-                [
+                if (isset($categories[$lignec->type_article])) {
+                    $categorieName = collect(json_decode($categories[$lignec->type_article]))->search(1);
+                }
+                $commandes[$lignec->id_cmd][$lignec->num_ligne] = [
                     'type' => $lignec->type_article,
-                    'categorie' => $categorieName
+                    'categorie' => $categorieName,
                 ];
             }
-
         }
-        
+
         var_dump($commandes);
     }
-    
-    
-    
 }

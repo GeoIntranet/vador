@@ -62,6 +62,11 @@ class CategorieGestion
         return $this;
     }
 
+    /**
+     * @param $ligne
+     * @return $this
+     *
+     */
     public function setLigne($ligne)
     {
         $this->ligne = $ligne;
@@ -80,12 +85,19 @@ class CategorieGestion
     }
 
     /**
-     * ??
+     * recherche a quelle categorie appartient la ligne
      */
     public function searchLigneCategorie()
     {
-        var_dump($this->ligne['type_article']);
-        die();
+        $type = $this->ligne['type_article'];
+
+        if (isset($this->categorieRedis[$type])) {
+            return $categorieName =
+                collect( json_decode( $this->categorieRedis[$type] ) )
+                    ->search(1)
+                ;
+        }
+        return false;
     }
 
     /**
