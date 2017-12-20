@@ -49,30 +49,23 @@
                 </div>
             </div>
             {{---------------------------------------------------------------------------------------------------------------------------------------------------------------}}
-
-
             <br><br>
-
 
             @foreach($sorties as $index => $sortie)
 
-                @php $neuf =  0; $occase =  0; $reco =  0; $hs = 0;@endphp
+                @php $neuf =  0; $occase =  0; $reco =  0; $hs = 0; @endphp
                 @php $count =  0 ; @endphp
 
                 @if(isset($mini[$index]))
-
-                    @php  $qte = $mini[$index]->first()->quantite;@endphp
-
+                    @php  $qte = $mini[$index]->first()->quantite; @endphp
                 @else
-
                     @php  $qte = 0 @endphp
-
                 @endif
 
 
 
                 @if(isset($stock[$index][1]))
-                    @php $count = $count + count($stock[$index][1])@endphp
+                    @php $count = $count + count($stock[$index][1]) @endphp
                     @php $neuf = count($stock[$index][1]) @endphp
                 @endif
 
@@ -133,7 +126,11 @@
 
                     </div>
 
-                </div>
+                    @if($count < $qte)
+                        </div>>
+                    @else
+                        </div>>
+                     @endif
                     <br>
             @endforeach
         </div>
