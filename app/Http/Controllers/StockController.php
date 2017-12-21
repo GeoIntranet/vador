@@ -117,4 +117,18 @@ class StockController extends Controller
            ->with('mini',$stockMini_)
            ;
     }
+
+    public function ajoutMini()
+    {
+        return view('stock.ajout_mini');
+    }
+
+    public function ajoutMiniData()
+    {
+        $stock = new StockMini();
+
+        $stock->fill(request()->except(['_token','_method']))->save();
+
+        return redirect()->action('StockController@mini');
+    }
 }

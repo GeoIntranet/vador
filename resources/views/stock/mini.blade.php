@@ -62,8 +62,6 @@
                     @php  $qte = 0 @endphp
                 @endif
 
-
-
                 @if(isset($stock[$index][1]))
                     @php $count = $count + count($stock[$index][1]) @endphp
                     @php $neuf = count($stock[$index][1]) @endphp
@@ -127,9 +125,9 @@
                     </div>
 
                     @if($count < $qte)
-                        </div>>
+                        </div>
                     @else
-                        </div>>
+                        </div>
                      @endif
                     <br>
             @endforeach

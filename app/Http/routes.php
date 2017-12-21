@@ -168,6 +168,8 @@ Route::group(['middleware' =>'gv'], function () {
 
     // PROTO  ---
     Route::get('/stock/mini', 'StockController@mini');
+    Route::get('/stock/mini/ajout', 'StockController@ajoutMini');
+    Route::post('/stock/mini/ajout', 'StockController@ajoutMiniData')->name('AjoutStockMini');
     Route::get('/stock/{id}', 'StockController@show');
     Route::get('/proto/multi', 'locatorController@protoMulti');
     Route::get('/proto/userstat', 'ProtoController@userstat');

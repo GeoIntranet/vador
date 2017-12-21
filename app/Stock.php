@@ -66,7 +66,9 @@ class Stock extends Model
     public function scopeContributionCommand($query,$option,$user)
     {
         $query = $query->select('out_datetime','out_id_cmd','out_id_user','id_locator')
-            ->wherein('out_id_user',$user);
+            ->wherein('out_id_user',$user)
+            ->where('id_etat','<>',1)
+        ;
 
         $query = $query->whereBetween('out_datetime',[$option['intervalle']['begin']->format('Y-m-d') ,$option['intervalle']['end']->format('Y-m-d')]);
 
