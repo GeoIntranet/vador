@@ -19,7 +19,7 @@
             </div>
             <div class="column medium-11">
                 <div class="row">
-                    <div class="column medium-12 border"><b>{{$index}}</b> - {{$stock['desc'][$index]}}
+                    <div class="column medium-12 border "><b class="red">{{$index}}</b> - {{$stock['desc'][$index]}}
                         - {{ isset($sortie['years']) ? count($sortie['years']): 0 }}
                         / {{ isset($sortie['sixMonth']) ? count($sortie['sixMonth']): 0 }}
                         / {{ isset($sortie['oneMonth']) ? count($sortie['oneMonth']): 0 }}
