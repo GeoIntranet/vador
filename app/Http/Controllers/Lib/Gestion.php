@@ -148,6 +148,7 @@ class Gestion extends Controller{
      */
     protected $technicien=[
         self::GV ,
+        self::SP ,
         self::ABR ,
         self::CC ,
         self::FLM ,

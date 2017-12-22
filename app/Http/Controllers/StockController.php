@@ -131,4 +131,13 @@ class StockController extends Controller
 
         return redirect()->action('StockController@mini');
     }
+
+    public function deleteMiniData()
+    {
+        $stock = new StockMini();
+
+        $stock->fill(request()->except(['_token','_method']))->save();
+
+        return redirect()->action('StockController@mini');
+    }
 }

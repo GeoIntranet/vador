@@ -81,54 +81,10 @@
                 @endif
 
                 @if($count < $qte)
-                    <div class="row " style="background-color: indianred;">
+                    @include('stock.toomin')
                 @else
-                    <div class="row " >
+                    @include('stock.okmin')
                 @endif
-
-                    <div class="column large-12 ">
-
-                        <div class="row">
-                            <div class="column medium-12 border"> <b>{{$index}}</b> - {{$stock['desc'][$index]}}
-                                - {{ isset($sortie['years']) ? count($sortie['years']): 0 }}
-                                / {{ isset($sortie['sixMonth']) ? count($sortie['sixMonth']): 0 }}
-                                / {{ isset($sortie['oneMonth']) ? count($sortie['oneMonth']): 0 }}
-                            </div>
-                        </div>
-
-                        <div class="row ">
-                            <div class="column medium-12 border">
-                                <?php $count = 0; ?>
-                                Stock Actuel -  Neuf : {{$neuf}} - Occase:{{$occase}} - Reconstruie : {{$reco}} - Hs : {{$hs}}
-
-                            </div>
-                        </div>
-
-                        <div class="row ">
-                            <div class="column medium-12 border">
-                                Achat en cours:
-                                @if(isset($achats[$index]))
-                                    Oui
-                                @else
-                                    non
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="row ">
-                            <div class="column medium-12 border">
-                                Stock Mini :  {{$qte}}
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    @if($count < $qte)
-                        </div>
-                    @else
-                        </div>
-                     @endif
                     <br>
             @endforeach
         </div>
