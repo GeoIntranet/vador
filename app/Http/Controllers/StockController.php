@@ -37,7 +37,10 @@ class StockController extends Controller
 
     public function mini(Stock $stock, Achat $achat, StockMini $stockMini)
     {
-        $stockMini_ = $stockMini->where('user_id',auth()->id())->get()->groupBy('article');
+        $user = auth()->id();
+        $user = [48,51];
+
+        $stockMini_ = $stockMini->wherein('user_id', $user)->get()->groupBy('article');
 
         $cat =[];
 
