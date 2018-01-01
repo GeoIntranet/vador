@@ -55,8 +55,7 @@ class StockController extends Controller
         $year = $now->copy()->subYear(1);
         $sixMonth = $now->copy()->subMonths(6);
         $oneMonth = $now->copy()->subMonth(1);
-
-
+        var_dump($cat);
 
         $sorties = $stock
             ->sortie()
@@ -73,10 +72,12 @@ class StockController extends Controller
             ->whereNull('out_datetime')
             ->get()
         ;
-
+        //var_dump($stocks->toArray());
         $achats  = $achat->whereIn('ref',$cat)
             ->whereNull('qte_recu')
             ->get();
+
+
 
         $classeurSortie = [];
         $classeurStock = [];
@@ -89,11 +90,14 @@ class StockController extends Controller
             $classeurStock[$id->article][$id->id_etat][] = $id->id_locator;
         }
 
+        //var_dump($classeurStock);
+        //var_dump($classeurStock);
+        //die();
+
         foreach ($achats as $index_achat => $achat)
         {
             $classeurAchat[$achat->ref][$achat->id_pd][] = $achat->in_etat;
         }
-
 
         $yearCount = 1;
         $sixMonthCount = 1;
@@ -111,21 +115,32 @@ class StockController extends Controller
             }
         }
 
-
+        //var_dump($classeurSortie);
+        //var_dump($classeurStock['desc']);
+        //var_dump($stockMini_);
+        //die();
 
        return view('stock.mini')
            ->with('sorties',$classeurSortie)
-           ->with('stock',$classeurStock)
+           ->with('stockReel',$classeurStock)
            ->with('achats',$classeurAchat)
-           ->with('mini',$stockMini_)
+           ->with('stockMini',$stockMini_)
            ;
     }
 
+    /**
+     * Formulaire affichage ajout d'un nouvel article dans la base du stock mini
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function ajoutMini()
     {
         return view('stock.ajout_mini');
     }
 
+    /**
+     * Logique Ajout un article dans la base stock Mini
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function ajoutMiniData()
     {
         $stock = new StockMini();
@@ -135,6 +150,10 @@ class StockController extends Controller
         return redirect()->action('StockController@mini');
     }
 
+    /**
+     * Logique Suppression d'un article dans la base stock Mini
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function deleteMiniData()
     {
         $stock = new StockMini();
@@ -142,5 +161,10 @@ class StockController extends Controller
         $stock->fill(request()->except(['_token','_method']))->save();
 
         return redirect()->action('StockController@mini');
+    }
+
+    public function miniEdit(StockMini $id)
+    {
+        var_dump($id->article);
     }
 }

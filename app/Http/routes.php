@@ -3,10 +3,11 @@
 
 use App\Categorie;
 use App\Console\Commands\Board\IncidentCache;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 
 Route::get('/phpinfo',function(){
-
 dd(phpinfo());
 });
 
@@ -168,8 +169,11 @@ Route::group(['middleware' =>'gv'], function () {
 
     // PROTO  ---
     Route::get('/stock/mini', 'StockController@mini');
+    Route::get('/stock/mini/{id}/edit', 'StockController@miniEdit');
     Route::get('/stock/mini/ajout', 'StockController@ajoutMini');
     Route::post('/stock/mini/ajout', 'StockController@ajoutMiniData')->name('AjoutStockMini');
+
+
     Route::get('/stock/{id}', 'StockController@show');
     Route::get('/proto/multi', 'locatorController@protoMulti');
     Route::get('/proto/userstat', 'ProtoController@userstat');

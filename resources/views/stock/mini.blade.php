@@ -51,42 +51,47 @@
             {{---------------------------------------------------------------------------------------------------------------------------------------------------------------}}
             <br><br>
 
-            @foreach($sorties as $index => $sortie)
+            @foreach($stockMini as $nom_article => $article)
 
                 @php $neuf =  0; $occase =  0; $reco =  0; $hs = 0; @endphp
                 @php $count =  0 ; @endphp
+                @php $qte =  $article->first()->quantite @endphp
 
-                @if(isset($mini[$index]))
-                    @php  $qte = $mini[$index]->first()->quantite; @endphp
-                @else
-                    @php  $qte = 0 @endphp
+                @if(isset($stockReel[$nom_article][1]))
+                    @php $count = $count + count($stockReel[$nom_article][1]) @endphp
+                    @php $neuf = count($stockReel[$nom_article][1]) @endphp
                 @endif
 
-                @if(isset($stock[$index][1]))
-                    @php $count = $count + count($stock[$index][1]) @endphp
-                    @php $neuf = count($stock[$index][1]) @endphp
+                @if(isset($stockReel[$nom_article][11]))
+                    @php $count = $count + count($stockReel[$nom_article][11]) @endphp
+                    @php $occase = count($stockReel[$nom_article][11]) @endphp
                 @endif
 
-                @if(isset($stock[$index][11]))
-                    @php $count = $count + count($stock[$index][11]) @endphp
-                    @php $occase = count($stock[$index][11]) @endphp
+                @if(isset($stockReel[$nom_article][21]))
+                    @php $reco = count($stockReel[$nom_article][21]) @endphp
                 @endif
 
-                @if(isset($stock[$index][21]))
-                    @php $reco = count($stock[$index][21]) @endphp
-                @endif
-
-                @if(isset($stock[$index][22]))
-                    @php $hs = count($stock[$index][22]) @endphp
+                @if(isset($stockReel[$nom_article][22]))
+                    @php $hs = count($stockReel[$nom_article][22]) @endphp
                 @endif
 
                 @if($count < $qte)
-                    @include('stock.toomin')
+                    <a href="{{action('StockController@miniEdit',['id'=>$stockMini[$nom_article]->first()->id])}}">
+                        @include('stock.toomin')
+                    </a>
+
                 @else
+                    <a href="{{action('StockController@miniEdit',['id'=>$stockMini[$nom_article]->first()->id])}}">
+
                     @include('stock.okmin')
+                    </a>
+
                 @endif
-                    <br>
+                <br>
+
             @endforeach
+
+
         </div>
         {{--BLOC QUI LE MODULE-------------------------------------------------------------------------------------------------------------------------------------------------}}
     </div>
