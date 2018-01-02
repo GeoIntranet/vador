@@ -1,5 +1,5 @@
 
-<div class="row bg-info pad3  align-center">
+<div class="row bg-info pad3  align-center" style="background-color: #b4ffc2; margin-bottom: 2px">
 
     <div class="column medium-1 bg_green white center padt15 invisible ">
         <b>{{$qte}}</b>
