@@ -13,7 +13,7 @@ DB_DATABASE_EURO=yoda
 DB_USERNAME_EURO=root
 DB_PASSWORD_EURO=
 
-domain=http://vador.euro/dev2.ico
+domain=http://vador.local/dev2.ico
 
 CACHE_DRIVER=redis
 SESSION_DRIVER=file

@@ -1,7 +1,7 @@
 <ul class="vertical menu" data-accordion-menu>
     <li><a  href=""><b>General</b></a></li>
     <li>
-        <a href=""><i class="fa fa-angle-right b "></i> Année</a>
+        <a href=""> <i class="fa fa-angle-right b "> </i>&nbsp;Année</a>
         <ul class="menu vertical nested">
 
             @if($request->year == '2016')
@@ -25,7 +25,7 @@
         </ul>
     </li>
     <li>
-        <a href=""><i class="fa fa-angle-right b "></i> Commandes</a>
+        <a href=""><i class="fa fa-angle-right b "> </i>&nbsp;Commandes</a>
         <ul class="menu vertical nested">
             <?php $linkAll =action('StatController@disptachJob',['job' => 'preparation' , 'user'=>'all' , 'year' => $request->year]) ?>
             <li>
@@ -49,7 +49,7 @@
     </li>
 
     <li>
-        <a href=""><i class="fa fa-angle-right b "></i> Incidents</a>
+        <a href=""><i class="fa fa-angle-right b "> </i>&nbsp;Incidents</a>
         <ul class="menu vertical nested">
             <?php $linkAll =action('StatController@disptachJob',['job' => 'incident' , 'user'=>'all' , 'year' => $request->year]) ?>
             <li>

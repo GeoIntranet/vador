@@ -200,6 +200,7 @@ class StatUserGestion extends UserGestion
     public function getIntervalle($year)
     {
         $year = $this->checkYear($year);
+        var_dump($year);
         $this->yearBegin->year = $year;
         $this->yearEnd->year = $year;
         $this->option['intervalle'] = [];
@@ -209,7 +210,7 @@ class StatUserGestion extends UserGestion
 
     public function checkYear($year)
     {
-        $availableYears= array_flip([2014,2015,2016]);
+        $availableYears= array_flip([2014,2015,2016,2017,2018]);
         return isset($availableYears[$year]) ? intval($year) : $this->now->copy()->year;
     }
 

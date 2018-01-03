@@ -148,7 +148,7 @@ class StatController extends Gestion
 
         return view('stat.tech.commandUser')
             -> with('request',$request)
-            -> with('detail',$userDetail)
+            -> with('detail',($userDetail))
             -> with('commandByMonth',$numberCommandMonth)
             -> with('moyenneItemByCommand',$moyenneItemCommand)
             -> with('commandYear',array_sum ( $numberCommandMonth ))
