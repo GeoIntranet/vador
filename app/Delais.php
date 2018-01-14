@@ -8,6 +8,8 @@ class Delais extends Model
 {
 
     protected $primaryKey='id_cmd';
+    protected $fillable =['date'];
+
 
 
     public function scopeSearchDelaisIn($query , $listOfBls)

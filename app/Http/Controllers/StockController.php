@@ -32,7 +32,10 @@ class StockController extends Controller
         Redis::ZINCRBY($this->keyEmplacement, 1, $id);
         $articles = $this->manager->searchEmplacement($id)->get();
 
-        return view('locator.show')->with('articles', $articles)->with('nameFilter', strtoupper($id))->with('id', $id);
+        return view('locator.show')
+            ->with('articles', $articles)
+            ->with('nameFilter', strtoupper($id))
+            ->with('id', $id);
     }
 
     public function mini(Stock $stock, Achat $achat, StockMini $stockMini)

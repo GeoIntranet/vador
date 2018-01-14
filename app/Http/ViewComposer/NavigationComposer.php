@@ -2,6 +2,7 @@
 
 namespace App\Http\ViewComposer;
 
+use App\Http\Controllers\Lib\Board\Module\IncidentModule;
 use App\Http\Controllers\Lib\Gestion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
@@ -32,6 +33,9 @@ class NavigationComposer extends Gestion
             $avatar_[$item] = $avatar__;
         }
 
+        $name='App\Http\Controllers\Lib\Board\Module\IncidentModule';
+        (app($name))->handle();
+
         $incidents = unserialize(Redis::get('incident.all.last'));
 
         $view
@@ -39,7 +43,6 @@ class NavigationComposer extends Gestion
             -> with('avatar',$avatar)
             -> with('avatar_',$avatar_)
             -> with('incidents_redis',$incidents)
-
         ;
     }
 }

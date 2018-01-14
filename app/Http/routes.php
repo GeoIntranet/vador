@@ -88,6 +88,10 @@ Route::group(['middleware' =>'gv'], function () {
 
 // TEAM WORKS ---------------------------------------------------------------------------------------------------------------------------
     Route::get('/team', ['as'=>'team','uses' => 'TeamController@index']);
+    Route::get('/team/works/{date}', ['as'=>'works','uses' => 'TeamController@works']);
+    Route::get('/team/works', ['as'=>'works','uses' => 'TeamController@works']);
+    Route::get('/team/{bl}/add', ['as'=>'works','uses' => 'TeamController@dayAdd']);
+    Route::get('/team/{bl}/sub', ['as'=>'works','uses' => 'TeamController@daySub']);
 // ------------------------------------------------------------------------------------------------------------------------------------
 
 

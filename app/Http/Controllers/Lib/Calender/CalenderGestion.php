@@ -26,9 +26,9 @@ class CalenderGestion
     /**
      * CalenderGestion constructor.
      */
-    public function __construct(Carbon $carbon)
+    public function __construct()
     {
-        $this->now = $carbon::now();
+        $this->now = Carbon::now();
     }
 
     public function generate($date = null)
@@ -39,7 +39,7 @@ class CalenderGestion
         $this->lastOfMonthSelected = $dt->copy()->EndOfMonth();
         $this->numberOfDays = $this->lastOfMonthSelected->copy()->day;
 
-         $this->generateTable();
+        $this->generateTable();
 
         $this->fillTable();
 
@@ -63,7 +63,8 @@ class CalenderGestion
             if($dayOfWeek == 0)
             {
                 $col = 1;
-                $row++; }
+                $row++;
+            }
             else
             {
                 $col++;

@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LocatorManager
 {
-
     public $key;
     public $input;
     public $query;
@@ -24,13 +23,14 @@ class LocatorManager
 
 
     /**
+     * key = nom de la clef dans le cache lié a un utilisateur
+     * ex :locator_search_48
      * LocatorManager constructor.
      */
     public function __construct()
     {
         $this->key = 'locator_search_'.Auth::user()->id;
     }
-
 
     /**
      * @param $request
@@ -44,7 +44,9 @@ class LocatorManager
 
         $this->resultQueryFilter = '';
 
-        if($this->hasInput()) $this->registerSession();
+        if( $this->hasInput() )
+            $this->registerSession()
+            ;
 
         return redirect()->back();
     }
@@ -70,7 +72,13 @@ class LocatorManager
         $this->article = $this->getArticle();
         $this->description = $this->getDescription();
 
-        return (($this->id <> '') | ($this->emplacement <> '') | ($this->article <> '') | ($this->description <> '')) ? TRUE : FALSE ;
+        return (
+            ($this->id <> '') |
+            ($this->emplacement <> '') |
+            ($this->article <> '') |
+            ($this->description <> ''))
+            ?
+            TRUE : FALSE ;
     }
 
 

@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Categorie;
+
 use App\Commande;
 use App\Http\controllers\Lib\Achat\WorkWithAchat;
-use App\Http\Controllers\Lib\Categorie\CategorieGestion;
 use App\Http\controllers\Lib\Commande\WorkWithCommande;
 use App\Http\controllers\Lib\Delais\FiltreDelaisManager;
 use App\Http\controllers\Lib\Order\OrderGestion;
 use App\Http\controllers\Lib\Order\OrderGestion_;
 use App\Http\Controllers\Lib\Gestion;
-use App\Thread;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
 
@@ -152,7 +149,13 @@ class DelaisController extends Gestion
 
         /*
          * Design the code !
-         * regroupement get Data : En cours -> return collection -> extract list Bl ->extract List Client ->extract list Vendeur ->get list User
+         * regroupement get Data :
+         * En cours ->
+         * return collection ->
+         * extract list Bl ->
+         * extract List Client ->
+         * extract list Vendeur ->
+         * get list User
          * test si presence delai via bl
          */
 
@@ -179,6 +182,7 @@ class DelaisController extends Gestion
     public function filtre(Session $session, $type, $value)
     {
         $filter = new FiltreDelaisManager($session, $type, $value);
+
         $filter->handle();
 
         return $filter;

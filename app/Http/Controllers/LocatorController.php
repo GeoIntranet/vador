@@ -42,7 +42,7 @@ class LocatorController extends EuroController
     {
         $this->locatorMaker = $locator;
         $this->cache = $cache;
-        $this->manager = $manager;
+        $this->locatorManager = $manager;
         $this->container = $container;
 
         $this->keySession = 'locator_search_'.Auth::user()->id;
@@ -64,18 +64,23 @@ class LocatorController extends EuroController
         {
             $session = session()->get($this->keySession);
 
-            if($session['emplacement'] <> '') Redis::ZINCRBY('locator:'.$this->keyEmplacement,1,$session['emplacement']);
+            if($session['emplacement'] <> '')
+                Redis::ZINCRBY('locator:'.$this->keyEmplacement,1,$session['emplacement']);
 
-            if($this->manager->isEmptySession($session)) return redirect()->action('locatorController@noSession');
+            if($this->locatorManager->isEmptySession($session))
+                return redirect()->action('locatorController@noSession');
 
-            if(is_array($session['description'])) $session['description'] = implode(' ', $session['description']);
+            if(is_array($session['description']))
+                $session['description'] = implode(' ', $session['description']);
 
-            $manager = $this->manager->prepareQuery($session)->execute();
+            $manager = $this->locatorManager->prepareQuery($session)->execute();
 
-            $counter = $this->manager->counter;
+            $counter = $this->locatorManager->counter;
+
             $result = $manager->query;
 
-            if ( ! $result->isEmpty() ) $nameQueryFiltred = json_decode($this->cache->cacheQueryFiltred($session))->read;
+            if ( ! $result->isEmpty() )
+                $nameQueryFiltred = json_decode($this->cache->cacheQueryFiltred($session))->read;
 
             return view('locator.show')
                 ->with('id',$this->id)
@@ -110,9 +115,9 @@ class LocatorController extends EuroController
 
         foreach ( $id_emplacement as  $index => $item) {
             if(
-                ( substr($item,-1)=='4' )
+                ( substr($item,-1) == '4' )
                 AND
-                ( strlen($item) ==4 )
+                ( strlen($item) == 4 )
                 AND
                 ( substr($item,0,1) !== 'T' )
                 AND
@@ -127,8 +132,6 @@ class LocatorController extends EuroController
             ->with('exception',collect($exception)->flip())
             ->with('zones',$zone)
             ;
-
-
     }
 
     /**
@@ -153,7 +156,7 @@ class LocatorController extends EuroController
         session()->reflash();
         session()->forget($this->keySession);
         Redis::ZINCRBY($this->keyEmplacement,1,$id);
-        $articles = $this->manager->searchEmplacement($id)->get();
+        $articles = $this->locatorManager->searchEmplacement($id)->get();
 
         return view('locator.show')
             ->with('articles', $articles)
@@ -194,7 +197,7 @@ class LocatorController extends EuroController
     public function filtreStoreArticle(request $request)
     {
         session()->reflash();
-        $model = $this->manager->searhEquivalentModel($request->art_search);
+        $model = $this->locatorManager->searhEquivalentModel($request->art_search);
         $model_ = [];
 
         foreach ($model as $index => $data) {
@@ -215,6 +218,7 @@ class LocatorController extends EuroController
     public function store(Request $request, repositoryLocatorManager $manager )
     {
         session()->reflash();
+
         $manager
             ->init($request)
             ->update()
@@ -255,7 +259,7 @@ class LocatorController extends EuroController
      */
     public function applyOutId(Request $request)
     {
-        $outManager = $this->manager->OutLocator()->setRequest($request);
+        $outManager = $this->locatorManager->OutLocator()->setRequest($request);
 
         if($outManager->validformatOut())
         {
@@ -320,7 +324,11 @@ class LocatorController extends EuroController
     public function search(Request $request)
     {
         session()->reflash();
-        $this->manager->prepareSessionSearch($request);
+
+        $query = $this->locatorManager->prepareSessionSearch($request);
+
+
+
         return redirect()->action('locatorController@index');
     }
 
@@ -376,7 +384,7 @@ class LocatorController extends EuroController
              return view('locator.showOut') ->with('articles',$out) ;
          }
 
-        $out = $this->manager
+        $out = $this->locatorManager
             ->OutLocator()
             ->selectOut('paginate') ;
 
@@ -432,7 +440,7 @@ class LocatorController extends EuroController
             return view('locator.last.in')->with('articles',$in) ;
         }
 
-        $in = $this->manager
+        $in = $this->locatorManager
             ->InLocator()
             ->selectIn('paginate') ;
 
@@ -478,7 +486,7 @@ class LocatorController extends EuroController
             session()->flash('locatorMode','multi');
             session()->flash('dataMultiple',$id);
 
-            $data = $this->manager ->multiID() ->searchID($id) ;
+            $data = $this->locatorManager ->multiID() ->searchID($id) ;
         }
 
         return view('locator.multi')
@@ -495,7 +503,7 @@ class LocatorController extends EuroController
     {
         $ids = [];
 
-        $multiManager = $this->manager
+        $multiManager = $this->locatorManager
             ->multiID()
             ->setRequest($request);
 
@@ -535,7 +543,7 @@ class LocatorController extends EuroController
     public function postMultiOut(Request $request)
     {
         session()->reflash(['dataMultiple']);
-        $outManager = $this->manager->OutLocator()->setRequest($request);
+        $outManager = $this->locatorManager->OutLocator()->setRequest($request);
 
         if($outManager->validformatOut())
         {
@@ -600,8 +608,14 @@ class LocatorController extends EuroController
      */
     public function getCatalogue()
     {
-        $data = session()->has('catalogue_data') ? session()->get('catalogue_data') : [];
+        $data =
+            session()->has('catalogue_data') ?
+                session()->get('catalogue_data')
+                :
+                []
+        ;
         $msg = 'Affichage des 25 derniers article crées';
+
 
         if(  empty($data) )
         {
@@ -619,6 +633,9 @@ class LocatorController extends EuroController
                 ->with('idLocator','achats')
                 ->get()
             ;
+
+            var_dump($data->first()->idLocator->first());
+            die();
         }
 
         //Affichage des dernier article crée
@@ -636,6 +653,7 @@ class LocatorController extends EuroController
     {
         $filtre = $request->input('filtre');
         $id = [];
+
         if($filtre <> '')
         {
             $id = Article::select('id_article')

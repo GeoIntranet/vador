@@ -96,7 +96,6 @@
               <script type="text/javascript" src="{{asset('js/jq.js')}}"></script>
               <script type="text/javascript" src="{{asset('js/all.js')}}"></script>
               <script type="text/javascript" src="{{asset('js/bbcode.js')}}"></script>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 
 
           </div>
