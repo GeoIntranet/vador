@@ -70,10 +70,13 @@ class TeamController extends Controller
         $delaisItem = New Delais();
 
         $delaisItem = $delaisItem
-            ->whereBetween('date',[$calendar->firstDay(),$calendar->lastDay()])
+            ->whereBetween('date_envoie',[$calendar->firstDay(),$calendar->lastDay()])
             ->get()
-            ->groupBy('date')
+            ->groupBy('date_envoie')
         ;
+
+        var_dump($delaisItem->first());
+
         return view('team.work')
             ->with('week',$calendar)
             ->with('delais',$delaisItem)
@@ -86,18 +89,18 @@ class TeamController extends Controller
     public function dayAdd($bl)
     {
         $delais = Delais::find($bl) ;
-        $date = new carbon($delais->date);
+        $date = new carbon($delais->date_envoie);
         $date = $date->dayOfWeek == 5 ? $date->addDays(3) : $date->addDay(1);
-        $delais->update(['date' => $date]);
+        $delais->update(['date_envoie' => $date]);
         return back();
     }
 
     public function daySub($bl)
     {
         $delais = Delais::find($bl) ;
-        $date = new carbon($delais->date);
+        $date = new carbon($delais->date_envoie);
         $date = $date->dayOfWeek == 1 ? $date->subDays(3) : $date->subDay(1);
-        $delais->update(['date' => $date]);
+        $delais->update(['date_envoie' => $date]);
         return back();
 
     }

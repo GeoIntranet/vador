@@ -69,14 +69,6 @@
                     <div class="off-canvas position-left hide-for-print" id="offCanvasLeft" data-off-canvas>
                         <ul class="c">
                             <li> <a href=""><i class="fa fa-close " data-close="offCanvasLeft"></i></a></li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
                         </ul>
                     </div>
                     <div class="off-canvas-content" data-off-canvas-content>
@@ -101,6 +93,9 @@
           </div>
     </div>
     <script>
+        $(window).on('load', function() {
+            $(window).scrollTop(0);
+        });
         $(function() {
             var wbbOpt = {
                 lang: "fr",
@@ -111,24 +106,20 @@
     $(document).foundation();
 
 
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
-        });
-
-    $(document).ready(function(){
-
-        var $switch = $('#exampleSwitch');
-        $switch.bind('click',function(){
-            if( $switch.is(':checked') == true){
-                 $('#expanded').addClass('expanded');
-                 $('#expanded_').addClass('expanded');
-            }
-            else{
-                $('#expanded').removeClass('expanded');
-                $('#expanded_').removeClass('expanded');
-            }
-        });
-    });
+//    $(document).ready(function(){
+//
+//        var $switch = $('#exampleSwitch');
+//        $switch.bind('click',function(){
+//            if( $switch.is(':checked') == true){
+//                 $('#expanded').addClass('expanded');
+//                 $('#expanded_').addClass('expanded');
+//            }
+//            else{
+//                $('#expanded').removeClass('expanded');
+//                $('#expanded_').removeClass('expanded');
+//            }
+//        });
+//    });
 
     </script>
     <footer class="footer ">

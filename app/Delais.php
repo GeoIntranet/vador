@@ -8,7 +8,7 @@ class Delais extends Model
 {
 
     protected $primaryKey='id_cmd';
-    protected $fillable =['date'];
+    protected $fillable =['date_envoie'];
 
 
 
