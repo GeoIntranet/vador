@@ -141,6 +141,7 @@ class Gestion extends Controller{
     const FRA = 10;
     const LP = 81;
     const RMD = 83;
+    const JFL = 82;
 
     /**
      * liste des id users technicien
@@ -148,6 +149,7 @@ class Gestion extends Controller{
      */
     protected $technicien=[
         self::GV ,
+        self::JFL ,
         self::SP ,
         self::ABR ,
         self::CC ,
@@ -234,6 +236,7 @@ class Gestion extends Controller{
         self::TH => ['nom' => 'HUBERT' , 'prenom' =>  'Thomas'       , 'id' => self::TH   ],
         self::LP => ['nom' => 'PEYRON' , 'prenom' =>  'Lucile'       , 'id' => self::LP   ],
         self::RMD => ['nom' => 'DASSE' , 'prenom' =>  'Rose-Marie'       , 'id' => self::RMD   ],
+        self::JFL => ['nom' => 'FURTADO LOPES' , 'prenom' =>  'Jonathan'       , 'id' => self::JFL   ],
     ];
     public $avatars=[
         self::BA => 'BH',
@@ -256,6 +259,7 @@ class Gestion extends Controller{
         self::SP => 'SP',
         self::TC => 'TC',
         self::TH => 'TH',
+        self::JFL => 'JFL',
     ];
 
     // MOIS --------------------------------------------------------------------------------------------------------------------------------
